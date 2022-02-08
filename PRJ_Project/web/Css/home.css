@@ -1,0 +1,51 @@
+body{
+    background-color: aliceblue;
+}
+.left{
+    width: 25%;
+    height: 81vh;
+    float: left;
+    padding: 5% 2% 0% 3% ;
+    background-color: ivory;
+    font-size: 15px;
+}
+.left form{
+    margin: 7% 0 7% 0;
+    padding: 5% 5% 5% 5%;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-style: italic;
+
+}
+.left form input{
+    width: 90%;
+}
+.left form button{
+    margin-top: 5%;
+    font-style: normal;
+}
+.right{
+    width: 70%;
+    height: 91vh;
+    float: right;
+    background-image: url("../Images/backgroundHome.jpg");
+    background-size: cover;
+    /*padding-bottom: 33.5%;*/
+}
+img{
+    width: 40%;
+    height: auto;
+    margin-left:25%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+a {
+    font-size: 10px;
+}
+.right p {
+    font-size: 7px;
+    padding-left: 50%;
+    font-weight: bold;
+    color: snow;
+}
+
