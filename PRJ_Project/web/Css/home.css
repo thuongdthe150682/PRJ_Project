@@ -1,51 +1,139 @@
 body{
-    background-color: aliceblue;
+    background-color: antiquewhite;
+    
 }
-.left{
-    width: 25%;
-    height: 81vh;
-    float: left;
-    padding: 5% 2% 0% 3% ;
-    background-color: ivory;
-    font-size: 15px;
+.container{
+    font-family: cursive;
+    background-color: #f7f7f7;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-.left form{
-    margin: 7% 0 7% 0;
-    padding: 5% 5% 5% 5%;
-    border: 1px solid black;
-    border-radius: 3px;
-    font-style: italic;
-
-}
-.left form input{
-    width: 90%;
-}
-.left form button{
-    margin-top: 5%;
-    font-style: normal;
-}
-.right{
-    width: 70%;
-    height: 91vh;
-    float: right;
-    background-image: url("../Images/backgroundHome.jpg");
-    background-size: cover;
-    /*padding-bottom: 33.5%;*/
-}
-img{
-    width: 40%;
+.menu img{
+    width: 15%;
     height: auto;
-    margin-left:25%;
-    margin-top: 5%;
-    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
-a {
-    font-size: 10px;
+.menu nav{
+    margin-left: 22%;
+    display: flex;
+    /*  margin: auto 0;*/
+    /*  justify-content: space-between;*/
 }
-.right p {
-    font-size: 7px;
-    padding-left: 50%;
+.menu nav a {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    text-decoration: none;
+    color: #444;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    text-align: center;
+    font-size: 0.6em;
+}
+.menu form {
+    width: 5%;
+    padding-top: 0.6em;
+    margin-left: 3%;
+}
+.menu button{
+    font-size: 0.7em;
+}
+.menu nav a:hover{
+    color: pink;
+}
+.left {
+    float: left;
+    width: 45%;
+    margin-left: 5%;
+    margin-bottom: 0;
+}
+.left table{
+    margin-left: 0;
+}
+.left table td{
+    padding-left: 1em;
+    padding-right: 0.2em;
+    border-right: 2px solid lightgrey;
+    line-height: 20px;
+    font-size: 0.7em;
+
+}
+.left table td:first-child{
+    padding-left: 0;
+}
+.left p {
     font-weight: bold;
-    color: snow;
+    font-size: 0.7em;
+}
+.left a {
+    text-decoration: none;
+    color: white;
+    background-color: crimson;
+    border-radius: 1.5em;
+    font-size: 0.7em;
+    font-weight: bolder;
+    padding: 0.7em 1em 0.7em 1em;
+}
+.left a:hover{
+    background-color: firebrick;
+}
+.right {
+    float: right;
+    width: 50%;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+.right img{
+    width: 100%;
+    height: auto;
+
+}
+.footer {
+    clear: both;
+    background-color: white;
+    display: flex;
+    font-size: 0.5em;
+    margin-top: 0;
+    padding-bottom: 1em;
+    font-family: Courier New Courier;
+}
+.footer p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.footer h6{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
+.footer div{
+    width: 30%;
+    margin-top: 0;
+    margin-left: 2%
+}
+.pfoot1 img{
+    width: 60%;
+    height: auto;
+}
+.pfoot1 h6{
+    margin-bottom: 0;
+}
+.pfoot1 p{
+    margin-top: 0;
+}
+.pfoot2 table{
+    width: 90%;
+    margin-left: 0;
+}
+.pfoot2 table tr td:first-child{
+    padding-left: 0;
+}
+.pfoot2 table tr td:first-child{
+    padding-right: 0;
+}
+.pfoot3 img{
+    width: 70%;
+    height: auto;
+}
