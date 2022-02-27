@@ -4,46 +4,19 @@
         <meta charset="utf-8">
         <title>Chop Chop Restaurant</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
+        <link href="Css/Login.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
         <div class="container">
-            <div class="menu" style="background-color: white;">
-                <nav>
-                    <a  href="#" id="active">Home</a>
-                    <a  href="#">Manage</a>
-                    <a  href="#">Special Dishes</a>
-                    <img src="Images/Logoo.png" alt="logo">
-                    <a href="#">Menu</a>
-                    <a href="#">Reservation</a>
-                    <form action="Home" method="">
-                        <button class="button"type="submit" >Login</button>
-                    </form>
-                </nav>
+            <div class="login">
+                <form action="#" method="">
+                    <img src="Images/Logoo.png"><br>
+                    Username:<input type="text" name="username"/><br>
+                    Password:<input type="text" name="password"/><br>
+                    <button class="button" type="submit">Login</button>
+                </form> 
             </div>
-
-            <div class="left">
-                <div>
-                    <h1>We Love <br>Delicious Foods!</h1>
-                    <div class="mb-2">
-                        <a class="btn" href="#" role="button">Explore Menu</a>
-                        <p>Call to order: 0582 642 654</p>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td>Fast Delivery</td>
-                            <td>Fresh Food</td>
-                            <td>24/7 Support</td>
-                        </tr>
-                    </table>
-                </div>    
-            </div>
-
-            <div class="right">
-                <img src="Images/ban_ghe.jpg" alt="">
-            </div>
-
             <footer class="footer">
                 <div class="pfoot1">
                     <h6>

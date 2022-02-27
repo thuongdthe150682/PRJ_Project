@@ -4,46 +4,40 @@
         <meta charset="utf-8">
         <title>Chop Chop Restaurant</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
+        <link href="Css/Reservation.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
         <div class="container">
             <div class="menu" style="background-color: white;">
                 <nav>
-                    <a  href="#" id="active">Home</a>
+                    <a  href="#" >Home</a>
                     <a  href="#">Manage</a>
                     <a  href="#">Special Dishes</a>
                     <img src="Images/Logoo.png" alt="logo">
                     <a href="#">Menu</a>
-                    <a href="#">Reservation</a>
+                    <a href="#" id="active">Reservation</a>
                     <form action="Home" method="">
                         <button class="button"type="submit" >Login</button>
                     </form>
                 </nav>
             </div>
+            <div class="form">
+                <div class="pform">
+                    <h6>Reservation</h6>
+                    <h2>Book Now</h2>
+                    <form action="" method="">
+                        <input type="text" placeholder="Name" name="name"><br>
+                        <input type="email" placeholder="Email" name="email"><br>
+                        <input type="date" placeholder="Date" name="date">
+                        <input type="time" placeholder="Time" name="time"><br>
+                        <input type="number" placeholder="Number of People" name="number"><br>
+                        <input class="area"type="textbox" placeholder="Your message" name="message"><br>
+                        <button class="button" type="submit">Send Messsage</button>
+                    </form>
+                </div>
 
-            <div class="left">
-                <div>
-                    <h1>We Love <br>Delicious Foods!</h1>
-                    <div class="mb-2">
-                        <a class="btn" href="#" role="button">Explore Menu</a>
-                        <p>Call to order: 0582 642 654</p>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td>Fast Delivery</td>
-                            <td>Fresh Food</td>
-                            <td>24/7 Support</td>
-                        </tr>
-                    </table>
-                </div>    
             </div>
-
-            <div class="right">
-                <img src="Images/ban_ghe.jpg" alt="">
-            </div>
-
             <footer class="footer">
                 <div class="pfoot1">
                     <h6>

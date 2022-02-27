@@ -2,6 +2,9 @@ body{
     background-color: antiquewhite;
     
 }
+.active{
+    color: pink;
+}
 .container{
     font-family: cursive;
     background-color: #f7f7f7;
@@ -31,13 +34,25 @@ body{
     text-align: center;
     font-size: 0.6em;
 }
+#active {
+    color: deeppink;
+}
 .menu form {
     width: 5%;
-    padding-top: 0.6em;
+    padding-top: 0.5em;
     margin-left: 3%;
 }
-.menu button{
+.button{
+    font-family: cursive;
     font-size: 0.7em;
+    background-color: cornsilk;
+    border-radius: 1em;
+    border: none;
+    padding: 0.5em 1em 0.5em 1em;
+}
+.button:hover{
+    background-color: yellow;
+    margin: auto 0;
 }
 .menu nav a:hover{
     color: pink;
@@ -66,7 +81,7 @@ body{
     font-weight: bold;
     font-size: 0.7em;
 }
-.left a {
+.btn {
     text-decoration: none;
     color: white;
     background-color: crimson;
@@ -75,7 +90,7 @@ body{
     font-weight: bolder;
     padding: 0.7em 1em 0.7em 1em;
 }
-.left a:hover{
+.btn:hover{
     background-color: firebrick;
 }
 .right {
