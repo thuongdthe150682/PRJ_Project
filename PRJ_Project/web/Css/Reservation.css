@@ -1,6 +1,6 @@
-body{
+/*body{
     font-size: 0.7em;
-}
+}*/
 .form {
     background: url(../Images/Reservation.png);
     background-size: cover;
@@ -26,6 +26,6 @@ h6 {
 }
 .area {
     width: 8em;
-    height: 10em;
+    height: 6em;
 }
 

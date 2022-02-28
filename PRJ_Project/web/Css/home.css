@@ -1,6 +1,6 @@
 body{
     background-color: antiquewhite;
-    
+    font-size: 0.7em;
 }
 .active{
     color: pink;
@@ -65,6 +65,7 @@ body{
 }
 .left table{
     margin-left: 0;
+    margin-bottom: 10%;
 }
 .left table td{
     padding-left: 1em;
@@ -77,9 +78,14 @@ body{
 .left table td:first-child{
     padding-left: 0;
 }
-.left p {
-    font-weight: bold;
+.pleft p {
     font-size: 0.7em;
+    color: #888;
+    font-weight: lighter;
+}
+.i{
+    width: 10%;
+    height: auto;
 }
 .btn {
     text-decoration: none;

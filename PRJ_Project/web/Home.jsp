@@ -24,8 +24,8 @@
 
             <div class="left">
                 <div>
-                    <h1>We Love <br>Delicious Foods!</h1>
-                    <div class="mb-2">
+                    <h2>We Love <br>Delicious Foods!</h2>
+                    <div class="pleft">
                         <a class="btn" href="#" role="button">Explore Menu</a>
                         <p>Call to order: 0582 642 654</p>
                     </div>
@@ -37,9 +37,9 @@
                             <td>24/7 Support</td>
                         </tr>
                     </table>
-                </div>    
+                </div>
             </div>
-
+            
             <div class="right">
                 <img src="Images/ban_ghe.jpg" alt="">
             </div>
