@@ -4,6 +4,7 @@ body{
 }
 .active{
     color: pink;
+    font-size: 1em;
 }
 .container{
     font-family: cursive;

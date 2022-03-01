@@ -1,0 +1,52 @@
+body{
+    font-size: 0.7em;
+}
+.OurMenu{
+    text-align: center;
+}
+.OurMenu p{
+    margin-bottom: 0;
+    color: crimson;
+}
+.OurMenu h1{
+    margin-top: 0;
+    margin-bottom: 0.7em;
+}
+
+.head{
+    margin-top: 1em;
+}
+.mleft{
+    float:left;
+    width: 15%;
+    margin-left: 5%;
+}
+.mright {
+    float:right;
+    margin-left: 5%;
+    width: 75%;
+}
+.adish{
+    display: table; 
+    width: 100%;
+    
+}
+.col {
+  display: table-cell; 
+  margin-bottom: 1em;
+}
+.left img{
+    width: 80%;
+    height: auto;
+}
+.right{
+    width: 45%;
+    margin-left: 5%;
+}
+.btn{
+    line-height: 4em;
+    width: 70%;
+    border-radius: 0;
+    border: 1px solid darksalmon;
+}
+
