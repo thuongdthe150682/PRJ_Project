@@ -4,14 +4,15 @@
         <meta charset="utf-8">
         <title>Chop Chop Restaurant</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
+        <link href="Css/Manage.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
         <div class="container">
             <div class="menu" style="background-color: white;">
                 <nav>
-                    <a  href="#" id="active">Home</a>
-                    <a  href="#">Manage</a>
+                    <a  href="#" >Home</a>
+                    <a  href="#" id="active">Manage</a>
                     <a  href="#">Special Dishes</a>
                     <img src="Images/Logoo.png" alt="logo">
                     <a href="#">Menu</a>
@@ -21,28 +22,33 @@
                     </form>
                 </nav>
             </div>
-
-            <div class="left">
-                <div>
-                    <h2>We Love <br>Delicious Foods!</h2>
-                    <div class="pleft">
-                        <a class="btn" href="#" role="button">Explore Menu</a>
-                        <p>Call to order: 0582 642 654</p>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td>Fast Delivery</td>
-                            <td>Fresh Food</td>
-                            <td>24/7 Support</td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="nav-bar">
+                <nav>
+                    <a href="" id="checked">Manage Dishes</a>
+                    <a href="">Manage Orders</a>
+                    <a href="">Manage Reservation</a>
+                    <a href="">Manage Revenue</a>
+                    
+                </nav>
             </div>
+             
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+            </table>
             
-            <div class="right">
-                <img src="Images/ban_ghe.jpg" alt="">
-            </div>
+            
+            
 
             <footer class="footer">
                 <div class="pfoot1">
