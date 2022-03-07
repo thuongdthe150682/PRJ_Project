@@ -57,7 +57,6 @@ body{
 }
 .menu nav a:hover{
     color: pink;
-    font-size: 0.8em;
 }
 .left {
     float: left;
