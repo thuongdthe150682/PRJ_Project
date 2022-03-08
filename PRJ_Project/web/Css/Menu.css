@@ -49,4 +49,8 @@ body{
     border-radius: 0;
     border: 1px solid darksalmon;
 }
-
+.newfood{
+    margin-left: 40%;
+    color: crimson;
+    font-family: serif;
+}

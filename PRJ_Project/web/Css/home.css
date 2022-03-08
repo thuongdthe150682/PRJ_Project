@@ -57,12 +57,13 @@ body{
 }
 .menu nav a:hover{
     color: pink;
+    font-size: 0.6em;
 }
 .left {
     float: left;
     width: 45%;
     margin-left: 5%;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 .left table{
     margin-left: 0;
@@ -159,4 +160,17 @@ body{
 .pfoot3 img{
     width: 70%;
     height: auto;
+}
+.adish{
+    clear: both;
+    display: table; 
+    width: 100%;
+    
+}
+.col {
+  display: table-cell; 
+  margin-bottom: 1em;
+}
+.specialdish{
+    clear: both;
 }
