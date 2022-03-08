@@ -9,8 +9,8 @@
 
     <body>
         <div class="container">
-            <div class="login">
-                <form action="#" method="">
+            <div class="login" style="background-color: antiquewhite;">
+                <form action="Login" method="get">
                     <img src="Images/Logoo.png"><br>
                     Username:<input type="text" name="username"/><br>
                     Password:<input type="text" name="password"/><br>

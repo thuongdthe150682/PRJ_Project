@@ -1,7 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
     <head lang="en">
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Chop Chop Restaurant</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Manage.css" rel="stylesheet" type="text/css"/>
@@ -11,13 +13,13 @@
         <div class="container">
             <div class="menu" style="background-color: white;">
                 <nav>
-                    <a  href="Home" id="active">Home</a>
-                    <a  href="Manage">Manage</a>
-                    <a  href="#newfood">Special Dishes</a>
+                    <a  href="Home">Home</a>
+                    <a  href="Manage" id="active">Manage</a>
+                    <a  href="SpecialDishes">Special Dishes</a>
                     <img src="Images/Logoo.png" alt="logo">
                     <a href="Menu">Menu</a>
                     <a href="Reservation">Reservation</a>
-                    <form action="Home" method="">
+                    <form action="Login" method="post">
                         <button class="button"type="submit" >Login</button>
                     </form>
                 </nav>

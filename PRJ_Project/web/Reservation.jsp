@@ -11,13 +11,13 @@
         <div class="container">
             <div class="menu" style="background-color: white;">
                 <nav>
-                    <a  href="Home" id="active">Home</a>
+                    <a  href="Home">Home</a>
                     <a  href="Manage">Manage</a>
-                    <a  href="#newfood">Special Dishes</a>
+                    <a  href="SpecialDishes">Special Dishes</a>
                     <img src="Images/Logoo.png" alt="logo">
                     <a href="Menu">Menu</a>
-                    <a href="Reservation">Reservation</a>
-                    <form action="Home" method="">
+                    <a href="Reservation"  id="active">Reservation</a>
+                    <form action="Login" method="post">
                         <button class="button"type="submit" >Login</button>
                     </form>
                 </nav>

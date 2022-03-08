@@ -1,7 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
     <head lang="en">
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Chop Chop Restaurant</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Menu.css" rel="stylesheet" type="text/css"/>
@@ -11,13 +13,13 @@
         <div class="container">
             <div class="menu" style="background-color: white;">
                 <nav>
-                    <a  href="Home" id="active">Home</a>
+                    <a  href="Home">Home</a>
                     <a  href="Manage">Manage</a>
-                    <a  href="#newfood">Special Dishes</a>
+                    <a  href="SpecialDishes">Special Dishes</a>
                     <img src="Images/Logoo.png" alt="logo">
-                    <a href="Menu">Menu</a>
+                    <a href="Menu"  id="active">Menu</a>
                     <a href="Reservation">Reservation</a>
-                    <form action="Home" method="">
+                    <form action="Login" method="post">
                         <button class="button"type="submit" >Login</button>
                     </form>
                 </nav>
@@ -30,31 +32,30 @@
             <div class="head">
                 <div class="mleft">
                     <nav>
-                        <a class="btn" href="#?id=" >Starter</a><br>
-                        <a class="btn" href="#?id=">Main course</a><br>
-                        <a class="btn" href="#?id=">Side dish</a><br>
-                        <a class="btn" href="#?id=">Dessert</a><br>
-                        <a class="btn" href="#?id=">Cold starter</a><br>
-                        <a class="btn" href="#?id=">Cheese and biscuits</a><br>
+                        <a class="btn" <c:if test="${id eq 0}"> style="background-color:paleturquoise;
+                               color: black;"</c:if>
+                            href="Menu">All Dishes</a>
                     </nav>
+                    <c:forEach items="${listC}" var="o">
+                        <nav>
+                            <a class="btn" <c:if test="${id eq o.getId()}"> style="background-color:paleturquoise;
+                               color: black;"</c:if>
+                                href="Menu?id=${o.getId()}">${o.getName()}</a>
+                        </nav>
+                    </c:forEach>
+                    
                 </div>
                 <div class="mright">
-                    <div class="adish">
-                        <img class="left col"src="Images/Banh_chuoi_nuoc_cot_dua.png" alt="">
+                    <c:forEach items="${list}" var="o">
+                        <div class="adish">
+                        <img class="left col"src="${o.getImage()}" alt="">
                         <div class="right col">
-                            <h3>1000$</h3>
-                            <p>Banh chuoi nuoc cot dua</p>
-                            <p>Descripttion</p>
+                            <h3>${o.getPrice()}</h3>
+                            <p>${o.getName()}</p>
+                            <p>${o.getDescription()}</p>
                         </div>
                     </div>
-                    <div class="adish">
-                        <img class="left col"src="Images/Banh_chuoi_nuoc_cot_dua.png" alt="">
-                        <div class="right col">
-                            <h3>1000$</h3>
-                            <p>Banh chuoi nuoc cot dua</p>
-                            <p>Descripttion</p>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
 
             </div>
