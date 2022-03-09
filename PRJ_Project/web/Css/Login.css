@@ -1,6 +1,6 @@
 
 .login {
-    padding: 20%;
+    padding: 10%;
     padding-left: 25%;
     text-align: center;
     background: antiquewhite;
@@ -10,12 +10,20 @@ form{
     
     width: 80%;
     border: 2px solid grey;
-    border-radius: 10em;
+    border-radius: 1em;
     background-color: white;
 }
 .login form img{
     width: 30%;
     height: auto;
     text-align: center;
+}
+.button{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.button:hover{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 

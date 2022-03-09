@@ -19,9 +19,9 @@ public class AccountDAO extends BaseDAO{
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 list.add(new Account(
-                        rs.getString("Username"),
-                        rs.getString("Password"),
-                        rs.getString("Account_off")));
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getBoolean(3)));
             }
             return list;
         } catch (SQLException e) {
@@ -39,9 +39,9 @@ public class AccountDAO extends BaseDAO{
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 account = new Account(
-                        rs.getString("Username"),
-                        rs.getString("Password"),
-                        rs.getString("Account_off"));
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getBoolean(3));
             }
             return account;
         } catch (SQLException e) {
@@ -49,25 +49,28 @@ public class AccountDAO extends BaseDAO{
         }
         return null;
     }
-    public boolean checkManageAccount(String Username, String Password){
+    public Account getAccount(String Username, String Password){
         boolean check=false;
         try {
-            String query = "select * from account where Username=? and Password=? and Account_off='manager'";
+            String query = "select * from account where Username=? "
+                    + "and Password=? ";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, Username);
             ps.setString(2, Password);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                check=true;
+                return new Account(rs.getString(1),
+                        rs.getString(2),
+                        rs.getBoolean(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return check;
+        return null;
     }
-//    public static void main(String[] args) {
-//        AccountDAO dao = new AccountDAO();
-//        System.out.println(dao.getAllAccount().size());
-//    }
+    public static void main(String[] args) {
+        AccountDAO dao = new AccountDAO();
+        System.out.println(dao.getAccount("ha123","ha123@123").toString());
+    }
      
 }

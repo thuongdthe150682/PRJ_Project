@@ -12,9 +12,11 @@
             <div class="login" style="background-color: antiquewhite;">
                 <form action="Login" method="get">
                     <img src="Images/Logoo.png"><br>
+                    <p style="color: crimson;">${message}</p>
                     Username:<input type="text" name="username"/><br>
                     Password:<input type="text" name="password"/><br>
-                    <button class="button" type="submit">Login</button>
+                    <button class="button" type="submit" style="font-size: 1em;"
+                            >Login</button>
                 </form> 
             </div>
             <footer class="footer">
