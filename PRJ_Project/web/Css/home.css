@@ -43,6 +43,7 @@ body{
     padding-top: 0.5em;
     margin-left: 3%;
 }
+
 .button{
     font-family: cursive;
     font-size: 0.7em;
@@ -58,6 +59,7 @@ body{
 .menu nav a:hover{
     color: pink;
     font-size: 0.6em;
+    text-decoration: underline;
 }
 .left {
     float: left;

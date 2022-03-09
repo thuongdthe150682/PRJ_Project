@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/Login"})
@@ -35,6 +36,9 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("message", "Wrong Username or Password");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("account", account);
+            response.sendRedirect("Manage");
             
         }
     }
@@ -43,8 +47,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-
+//        processRequest(request, response);
+            response.sendRedirect("Login.jsp");
     }
 
     @Override

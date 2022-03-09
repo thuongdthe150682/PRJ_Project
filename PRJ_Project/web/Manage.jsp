@@ -19,9 +19,16 @@
                     <img src="Images/Logoo.png" alt="logo">
                     <a href="Menu">Menu</a>
                     <a href="Reservation">Reservation</a>
-                    <form action="Login" method="post">
+                    <c:if test="${sessionScope.account == null}">
+                        <form action="Login.jsp" method="post">
                         <button class="button"type="submit" >Login</button>
-                    </form>
+                        </form>
+                    </c:if>
+                    <c:otherwise>
+                        <form action="Home.jsp" method="post">
+                        <button class="button" type="submit" >Logout</button>
+                        </form>
+                    </c:otherwise>
                 </nav>
             </div>
             <div class="nav-bar">
