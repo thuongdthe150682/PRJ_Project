@@ -21,7 +21,7 @@ public class AccountDAO extends BaseDAO{
                 list.add(new Account(
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getBoolean(3)));
+                        rs.getInt(3)));
             }
             return list;
         } catch (SQLException e) {
@@ -41,7 +41,7 @@ public class AccountDAO extends BaseDAO{
                 account = new Account(
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getBoolean(3));
+                        rs.getInt(3));
             }
             return account;
         } catch (SQLException e) {
@@ -49,28 +49,10 @@ public class AccountDAO extends BaseDAO{
         }
         return null;
     }
-    public Account getAccount(String Username, String Password){
-        boolean check=false;
-        try {
-            String query = "select * from account where Username=? "
-                    + "and Password=? ";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setString(1, Username);
-            ps.setString(2, Password);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                return new Account(rs.getString(1),
-                        rs.getString(2),
-                        rs.getBoolean(3));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
-        System.out.println(dao.getAccount("ha123","ha123@123").toString());
+        System.out.println(dao.getAnAccount("ha123","ha123@123").toString());
     }
      
 }

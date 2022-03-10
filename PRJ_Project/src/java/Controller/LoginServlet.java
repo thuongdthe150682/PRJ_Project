@@ -31,15 +31,17 @@ public class LoginServlet extends HttpServlet {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
         AccountDAO dao = new AccountDAO();
-        Account account = dao.getAccount(user, pass);
+        Account account = dao.getAnAccount(user, pass);
         if(account==null){
             request.setAttribute("message", "Wrong Username or Password");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }else{
             HttpSession session = request.getSession();
-            session.setAttribute("account", account);
-            response.sendRedirect("Manage");
-            
+            session.setAttribute("acc", account);
+            //request.setAttribute("acc", account);
+            //session.setAttribute("acc", account);
+            //request.getRequestDispatcher("Home").forward(request, response);
+            response.sendRedirect("Home");
         }
     }
 

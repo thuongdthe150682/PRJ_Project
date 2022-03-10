@@ -22,6 +22,7 @@ public class SpecialDishesServlet extends HttpServlet {
         DishDAO dao = new DishDAO();
       List<Dish> listN = dao.getNewDishes();
       request.setAttribute("list", listN);
+      request.setAttribute("active", "specialDishes");
       request.getRequestDispatcher("SpecialDishes.jsp").forward(request, response);
      
     }

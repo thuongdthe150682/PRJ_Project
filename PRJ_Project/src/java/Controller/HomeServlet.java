@@ -21,6 +21,7 @@ public class HomeServlet extends HttpServlet {
       DishDAO dao = new DishDAO();
       List<Dish> listN = dao.getNewDishes();
       request.setAttribute("list", listN);
+      request.setAttribute("active", "home");
       request.getRequestDispatcher("Home.jsp").forward(request, response);
     }
 //    public static void main(String[] args) {

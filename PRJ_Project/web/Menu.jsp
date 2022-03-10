@@ -11,31 +11,19 @@
 
     <body>
         <div class="container">
-            <div class="menu" style="background-color: white;">
-                <nav>
-                    <a  href="Home">Home</a>
-                    <a  href="Manage">Manage</a>
-                    <a  href="SpecialDishes">Special Dishes</a>
-                    <img src="Images/Logoo.png" alt="logo">
-                    <a href="Menu"  id="active">Menu</a>
-                    <a href="Reservation">Reservation</a>
-                    <form action="Login" method="post">
-                        <button class="button"type="submit" >Login</button>
-                    </form>
-                </nav>
-            </div>
-            <div class="OurMenu">
-                <p>Specialties</p>
-                <h1>Our Menu</h1>
-            </div>
+            <jsp:include page="Header.jsp"></jsp:include>
+                <div class="OurMenu">
+                    <p>Specialties</p>
+                    <h1>Our Menu</h1>
+                </div>
 
-            <div class="head">
-                <div class="mleft">
-                    <nav>
-                        <a class="btn" <c:if test="${id eq 0}"> style="background-color:paleturquoise;
-                               color: black;"</c:if>
-                            href="Menu">All Dishes</a>
-                    </nav>
+                <div class="head">
+                    <div class="mleft">
+                        <nav>
+                            <a class="btn" <c:if test="${id eq 0}"> style="background-color:paleturquoise;
+                           color: black;"</c:if>
+                           href="Menu">All Dishes</a>
+                        </nav>
                     <c:forEach items="${listC}" var="o">
                         <nav>
                             <a class="btn" <c:if test="${id eq o.getId()}"> style="background-color:paleturquoise;
@@ -43,81 +31,24 @@
                                 href="Menu?id=${o.getId()}">${o.getName()}</a>
                         </nav>
                     </c:forEach>
-                    
+
                 </div>
                 <div class="mright">
                     <c:forEach items="${list}" var="o">
                         <div class="adish">
-                        <img class="left col"src="${o.getImage()}" alt="">
-                        <div class="right col">
-                            <h3>${o.getPrice()}</h3>
-                            <p>${o.getName()}</p>
-                            <p>${o.getDescription()}</p>
+                            <img class="left col"src="${o.getImage()}" alt="">
+                            <div class="right col">
+                                <h3>${o.getPrice()}</h3>
+                                <p>${o.getName()}</p>
+                                <p>${o.getDescription()}</p>
+                            </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
 
             </div>
 
-            <footer class="footer">
-                <div class="pfoot1">
-                    <h6>
-                        <img src="Images/Logoo.png" alt="">
-                    </h6>
-                    <p>
-                        Welcome to our restaurant!<br> 
-                        Wish you a delicious meal and<br> have
-                        enjoyable relaxing moments in ChopChop.
-                    </p>
-                </div>
-                <div class="pfoot2">
-                    <h6>
-                        Open Hours
-                    </h6>
-                    <table class="tableF">
-                        <tr><td>Monday</td><td>9:00 - 24:00</td></tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>Closed</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="pfoot3">
-                    <h6>
-                        ChopChop
-                    </h6>
-                    <img src="Images/overview.jpg" alt="">
-                    <p>Email : Thuongdthe150682@fpt.edu.vn</p>
-                    <p>Address: 100 Hoang Mai, HN</p>
-                    <p>Phone: 0582 642 654</p>
-                </div>
-
-            </footer>
+            <jsp:include page="Footer.jsp"></jsp:include>
         </div>
     </body>
 </html>

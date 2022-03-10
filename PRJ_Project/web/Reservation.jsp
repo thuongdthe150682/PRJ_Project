@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head lang="en">
@@ -9,94 +11,26 @@
 
     <body>
         <div class="container">
-            <div class="menu" style="background-color: white;">
-                <nav>
-                    <a  href="Home">Home</a>
-                    <a  href="Manage">Manage</a>
-                    <a  href="SpecialDishes">Special Dishes</a>
-                    <img src="Images/Logoo.png" alt="logo">
-                    <a href="Menu">Menu</a>
-                    <a href="Reservation"  id="active">Reservation</a>
-                    <form action="Login" method="post">
-                        <button class="button"type="submit" >Login</button>
-                    </form>
-                </nav>
-            </div>
+            <jsp:include page="Header.jsp"></jsp:include>
             <div class="form">
                 <div class="pform">
                     <h6>Reservation</h6>
                     <h2>Book Now</h2>
-                    <form action="" method="">
+                    <form action="Reservation" method="post">
                         <input type="text" placeholder="Name" name="name"><br>
-                        <input type="email" placeholder="Email" name="email"><br>
+                        <input type="text" placeholder="Phone" name="phone"><br>
                         <input type="date" placeholder="Date" name="date">
                         <input type="time" placeholder="Time" name="time"><br>
                         <input type="number" placeholder="Number of People" name="number"><br>
                         <input class="area"type="textbox" placeholder="Your message" name="message"><br>
+                        <p style="font-size: 0.6em; color: crimson;">${message}</p>
                         <button class="button" type="submit">Send Messsage</button>
                     </form>
                 </div>
 
             </div>
             
-            <footer class="footer">
-                <div class="pfoot1">
-                    <h6>
-                        <img src="Images/Logoo.png" alt="">
-                    </h6>
-                    <p>
-                        Welcome to our restaurant!<br> 
-                        Wish you a delicious meal and<br> have
-                        enjoyable relaxing moments in ChopChop.
-                    </p>
-                </div>
-                <div class="pfoot2">
-                    <h6>
-                        Open Hours
-                    </h6>
-                    <table class="tableF">
-                        <tr><td>Monday</td><td>9:00 - 24:00</td></tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>9:00 - 24:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>Closed</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="pfoot3">
-                    <h6>
-                        ChopChop
-                    </h6>
-                    <img src="Images/overview.jpg" alt="">
-                    <p>Email : Thuongdthe150682@fpt.edu.vn</p>
-                    <p>Address: 100 Hoang Mai, HN</p>
-                    <p>Phone: 0582 642 654</p>
-                </div>
-
-            </footer>
+            <jsp:include page="Footer.jsp"></jsp:include>
         </div>
     </body>
 </html>

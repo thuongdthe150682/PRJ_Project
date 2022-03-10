@@ -4,7 +4,7 @@ package Model;
 public class Account {
     private String Username;
     private String Password;
-    private boolean isManager;
+    private int isManager;
 
     public Account() {
     }
@@ -14,11 +14,13 @@ public class Account {
         this.Password = Password;
     }
 
-    public Account(String Username, String Password, boolean isManager) {
+    public Account(String Username, String Password, int isManager) {
         this.Username = Username;
         this.Password = Password;
         this.isManager = isManager;
     }
+
+    
 
     public String getUsername() {
         return Username;
@@ -36,11 +38,11 @@ public class Account {
         this.Password = Password;
     }
 
-    public boolean isIsManager() {
+    public int getIsManager() {
         return isManager;
     }
 
-    public void setIsManager(boolean isManager) {
+    public void setIsManager(int isManager) {
         this.isManager = isManager;
     }
 
@@ -49,6 +51,9 @@ public class Account {
         return "Account{" + "Username=" + Username + ", Password=" + Password + ", isManager=" + isManager + '}';
     }
 
+ 
+
+   
     
     
 
