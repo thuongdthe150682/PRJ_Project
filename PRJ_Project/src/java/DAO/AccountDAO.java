@@ -30,15 +30,15 @@ public class AccountDAO extends BaseDAO{
         return null;
     }
     public Account getAnAccount(String Username,String Password ){
-        Account account = new Account();
+         Account account =null;
         try {
-            String query = "select * from account where Username=? and Password=? ";
+            String query = "select * from account where Username=? and [Password]=? ";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, Username);
             ps.setString(2, Password);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                account = new Account(
+               account = new Account(
                         rs.getString(1),
                         rs.getString(2),
                         rs.getInt(3));
@@ -52,7 +52,7 @@ public class AccountDAO extends BaseDAO{
     
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
-        System.out.println(dao.getAnAccount("ha123","ha123@123").toString());
+        System.out.println(dao.getAnAccount("ma123","ha123@123").toString());
     }
      
 }

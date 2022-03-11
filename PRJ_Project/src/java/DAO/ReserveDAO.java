@@ -9,10 +9,10 @@ import java.util.List;
 
 public class ReserveDAO extends BaseDAO {
 
-    public List<Reservation> getAllAccount() {
+    public List<Reservation> getNotYetReservation() {
         List<Reservation> list = new ArrayList<>();
         try {
-            String query = "select * from Reservation";
+            String query = " select * from Reservation where [Status] = 0";
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -32,7 +32,45 @@ public class ReserveDAO extends BaseDAO {
         }
         return null;
     }
-
+    public List<Reservation> getDoneReservation() {
+        List<Reservation> list = new ArrayList<>();
+        try {
+            String query = " select * from Reservation where [Status] = 1";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Reservation(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9)));
+            }
+            return list;
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
+    public void updateReservation(Reservation r){
+        try {
+            String query = "insert into Reservation (Name, [Date],"
+                    + " [Time], Phone,People , [Message],"
+                    + " [Status]) values (?,?,?,?,?,?,0)";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, r.getName());
+            ps.setString(2, r.getDate());
+            ps.setString(3, r.getTime());
+            ps.setString(4, r.getPhone());
+            ps.setString(5, r.getNumber_People());
+            ps.setString(6, r.getMesage());
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
     public void addReservation(Reservation r) {
         try {
             String query = "insert into Reservation (Name, [Date],"

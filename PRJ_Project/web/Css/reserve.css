@@ -1,0 +1,32 @@
+.reservation{
+    margin-left: 2%;
+    font-size: 1.5em;
+    color: brown;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.table_reserve{
+    margin: 0 auto;
+    margin-bottom: 2em;
+    border: 1px solid darkgrey;
+}
+.table_reserve tr{
+    border-bottom: 1px solid darkgrey;
+}
+.table_reserve td{
+    padding: 3px;
+}
+.rleft{
+    float: left;
+    width: 60%;
+}
+.rright{
+    float: left;
+    widows: 40%;
+    margin-left: 0;
+}
+.area {
+    width: 8em;
+    height: 6em;
+}
+
