@@ -12,6 +12,7 @@
     </head>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
+        ${message}
         <table class="table">
             <thead>
                 <tr>

@@ -1,4 +1,5 @@
 .table{
+    width: 70%;
     margin:  0 auto;
     text-align: center;
     margin-top: 2em;
@@ -29,3 +30,35 @@
  .table a:hover{
      color: crimson;
  }
+
+ .clear{
+     clear: both;
+ }
+ .add_table{
+     margin-left: 5%;
+     color: darkblue;
+     font-size: 1.5em;
+ }
+ .cate{
+     margin-left: 5%;
+     margin-top: 0;
+     margin-bottom: 0;
+     color: captiontext;
+     font-size: 1em;
+     
+ }
+.btn {
+    position: fixed;
+    left:0;
+    bottom:5%;
+}
+.tablee{
+    display: none;
+}
+.input{
+    border: none;
+    width: 100%;
+}
+.button{
+    margin: 0 auto;
+}

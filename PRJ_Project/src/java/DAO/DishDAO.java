@@ -61,8 +61,8 @@ public class DishDAO extends BaseDAO {
     public List<Dish> getDishesByCategory(String id) {
         List<Dish> list = new ArrayList<>();
         try {
-            String query = "select * from Dishes\n" +
-            "where CategoryId=?";
+            String query = "select * from Dishes\n"
+                    + "where CategoryId=?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
@@ -79,7 +79,31 @@ public class DishDAO extends BaseDAO {
             }
             return list;
         } catch (SQLException e) {
-            e.printStackTrace();
+             e.getStackTrace();
+        }
+        return null;
+    }
+
+    public Dish getDishesById(String id) {
+        
+        try {
+            String query = "select * from Dishes where Id=?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Dish(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getBoolean(6),
+                        rs.getInt(7)
+                );
+            }
+        } catch (SQLException e) {
+            e.getStackTrace();
         }
         return null;
     }
