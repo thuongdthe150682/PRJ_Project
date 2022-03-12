@@ -10,7 +10,7 @@
     margin-bottom: 2em;
     border: 1px solid darkgrey;
 }
-.table_reserve tr{
+.table_reserve td{
     border-bottom: 1px solid darkgrey;
 }
 .table_reserve td{

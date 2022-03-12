@@ -58,13 +58,13 @@ public class DishDAO extends BaseDAO {
         return null;
     }
 
-    public List<Dish> getDishesByCategory(int id) {
+    public List<Dish> getDishesByCategory(String id) {
         List<Dish> list = new ArrayList<>();
         try {
             String query = "select * from Dishes\n" +
             "where CategoryId=?";
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Dish(

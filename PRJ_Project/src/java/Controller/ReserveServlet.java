@@ -32,9 +32,16 @@ public class ReserveServlet extends HttpServlet {
         if(list.isEmpty() && listD.isEmpty()){
             request.setAttribute("message", "There is no Reservation");
         }
+        
+        String id = request.getParameter("id");
+        Reservation reserve = dao.getReservationById(id);
+        request.setAttribute("id", id);
+        request.setAttribute("reserve", reserve);
         request.setAttribute("active", "Reserve");
         request.setAttribute("listN", list);
         request.setAttribute("listD", listD);
+        String messageEdit = (String) request.getAttribute("messageEdit");
+        request.setAttribute("messageEdit", messageEdit);
         request.getRequestDispatcher("Reserve.jsp").forward(request, response);
     }
 

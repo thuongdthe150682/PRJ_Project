@@ -31,7 +31,6 @@
                                 <th>People</th>
                                 <th>Message</th>
                                 <th>Phone</th>
-                                <th>Edit</th>
                                 <th>Staff</th>
                                 <th></th>
                             </tr>
@@ -47,8 +46,8 @@
                                     <td>${o.getNumber_People()}</td>
                                     <td>${o.getMesage() }</td>
                                     <td>${o.getPhone()}</td>
-                                    <td><a href="Reserve?id=${o.getId()}">Edit</a></td>
                                     <td>${o.getStaff()}</td>
+                                    <td><a href="Reserve?id=${o.getId()}">Edit</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -69,6 +68,7 @@
                                 <th>Message</th>
                                 <th>Phone</th>
                                 <th>Staff</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,25 +83,33 @@
                                     <td>${o.getMesage() }</td>
                                     <td>${o.getPhone()}</td>
                                     <td>${o.getStaff()}</td>
+                                    <td><a href="Reserve?id=${o.getId()}">Edit</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
                 </c:if>
             </div>
-            <div class="rright col" >
-                <h6 class="reservation">Edit</h6>
-                <form action="editReservation" method="post">
-                    <input type="text" value="id" name="ID" readonly><br>
-                    <input type="text" value="Name" name="name"><br>
-                    <input type="date" value="Date" name="date"><br>
-                    <input type="time" value="Time" name="time"><br>
-                    <input type="number" value="Number of People" name="number"><br>
-                    <input type="text" value="Phone" name="phone" readonly><br>
-                    <input class="area"type="textbox" placeholder="Your message" name="message"><br>
-                    <button class="button" type="submit">Done</button>
-                </form>
-            </div>
+            <c:if test="${reserve !=null}">
+                <div class="rright col" >
+                    <h6 class="reservation">Edit</h6>
+                    <form action="editReservation" method="get">
+                        <input type="text" value="${reserve.getId()}" name="id" readonly><br>
+                        <input type="text" value="${reserve.getName()}" name="name"><br>
+                        <input type="date" value="${reserve.getDate()}" name="date"><br>
+                        <input type="time" value="${reserve.getTime()}" name="time"><br>
+                        <input type="number" value="${reserve.getNumber_People()}" name="number"><br>
+                        <input type="text" value="${reserve.getPhone()}" name="phone" readonly><br>
+                        <input class="area"type="textbox" name="message">${reserve.getMesage()}<br>
+                        <c:if test="${messageEdit == 'Edit Successfully.'}">${messageEdit}</c:if>
+                        <c:if test="${messageEdit != 'Edit Successfully.'}">
+                            <button class="button" type="submit">Done</button>
+                        </c:if>
+
+                    </form>
+                </div>
+            </c:if>
+
         </div>
         <jsp:include page="Footer.jsp"></jsp:include>
 

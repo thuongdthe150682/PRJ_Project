@@ -12,7 +12,7 @@
             <a  href="Manage" ${active eq "manage"? "id='active'":""}>Manage</a>
         </c:if>
         <c:if test="${sessionScope.acc.isManager == 0}">
-            <a  href="AddOrder ${active eq "addOrder"? "id='active'":""}">Add Order</a>
+            <a  href="Table" ${active eq "addOrder"? "id='active'":""}">Add Order</a>
         </c:if>
         <c:if test="${sessionScope.acc != null}">
         </c:if>

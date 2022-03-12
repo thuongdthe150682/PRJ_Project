@@ -1,0 +1,31 @@
+.table{
+    margin:  0 auto;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.table th{
+    background-color: forestgreen;
+    color: white;
+}
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.table tr:nth-child(odd){
+    background-color: beige;
+}
+ .table tr:hover {
+     background-color: #ddd;
+ }
+ .table td{
+     padding-left: 2em;
+     padding-right: 2em;
+ }
+ 
+
+ .table a{
+     text-decoration: none;
+ }
+ .table a:hover{
+     color: crimson;
+ }
