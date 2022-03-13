@@ -1,3 +1,6 @@
+body{
+    font-size: 0.7em;
+}
 .table td{
     padding-left: 0;
     padding-right: 0;
@@ -17,4 +20,7 @@ h5{
 }
 .buttonn:hover{
     background-color: yellow;
+}
+.footer{
+    margin-top: 0.5em;
 }

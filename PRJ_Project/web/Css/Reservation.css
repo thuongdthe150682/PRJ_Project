@@ -1,6 +1,9 @@
 /*body{
     font-size: 0.7em;
 }*/
+body{
+    font-size: 0.7em;
+}
 .form {
     background: url(../Images/Reservation.png);
     background-size: cover;

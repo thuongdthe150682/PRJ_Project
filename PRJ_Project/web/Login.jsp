@@ -2,7 +2,7 @@
 <html>
     <head lang="en">
         <meta charset="utf-8">
-        <title>Chop Chop Restaurant</title>
+        <title>Login</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Login.css" rel="stylesheet" type="text/css"/>
     </head>

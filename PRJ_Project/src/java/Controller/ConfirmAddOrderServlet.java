@@ -61,7 +61,10 @@ public class ConfirmAddOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String orderid = request.getParameter("orderId");
+        AddOderDAO dao = new AddOderDAO();
+        dao.finishOrder(orderid);
+        response.sendRedirect("Table");
     }
 
   

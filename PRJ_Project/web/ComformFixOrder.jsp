@@ -18,7 +18,7 @@
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
         <h5>Add ${table.getName()}</h5>
-        <form action="ConfirmAddOrder" method="get">
+        <form action="UpdateOrder" method="post">
             <input type="text" class="tablee" value="${table.getId()}" readonly>
             <table class="table">
                 <thead>
@@ -41,7 +41,7 @@
                 </tbody>
             </table>
             <input class="tablee" type="text" name="table" value="${table.getId()}" readonly/>
-            <button class="buttonn" type="submit" onclick="aa()">Add Order</button>
+            <button class="buttonn" type="submit" onclick="aa()">Fix Order</button>
         </form>
 
         <jsp:include page="Footer.jsp"></jsp:include>

@@ -22,6 +22,8 @@ public class TableServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         AddOderDAO dao = new  AddOderDAO();
         List<Table> list = dao.getAllTable();
+        String message = (String)request.getAttribute("message");
+        request.setAttribute("message", message);
         request.setAttribute("list", list);
         request.getRequestDispatcher("Table.jsp").forward(request, response);
      

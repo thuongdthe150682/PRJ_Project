@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Reserve</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/reserve.css" rel="stylesheet" type="text/css"/>
     </head>

@@ -5,7 +5,7 @@
 <html>
     <head lang="en">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Chop Chop Restaurant</title>
+        <title>Special Dishes</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Menu.css" rel="stylesheet" type="text/css"/>
     </head>
