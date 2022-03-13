@@ -1,6 +1,10 @@
 body{
     font-size: 0.7em;
 }
+.message{
+    color: cornflowerblue;
+    margin-left: 5%;
+}
 .table{
     width: 70%;
     margin:  0 auto;
@@ -40,7 +44,7 @@ body{
  .add_table{
      margin-left: 5%;
      color: darkblue;
-     font-size: 1.5em;
+     font-size: 0.7em;
  }
  .cate{
      margin-left: 5%;

@@ -16,7 +16,7 @@
 
         <div class="Aorder">
             <h5 class="add_table">${table.getName()} Order:${orderId}</h5>
-            <form action="ConfirmFixOrder" method="post">
+            <form action="FixOrder" method="post">
                 <table class="table" style="margin-left: 5%;">
                     <tbody>
                         <c:forEach var="i" begin="0" end="${listDish.size()-1}" >
@@ -37,7 +37,7 @@
                             <tbody>
                                 <c:forEach  var="d" items="${o.getList()}">
                                     <tr>
-                                        <td><input class ="a" type="checkbox" name="chose" value="${d.getId()}" /></td>
+                                        <td><input class ="a" type="checkbox" name="chosee" value="${d.getId()}" /></td>
                                         <td style="margin-left: 0.5em;">${d.getId()}.${d.getName()}</td>
                                         <td>${d.getPrice()}$</td>
                                     </tr>

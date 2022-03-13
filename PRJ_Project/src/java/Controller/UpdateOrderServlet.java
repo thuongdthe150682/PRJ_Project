@@ -20,6 +20,12 @@ public class UpdateOrderServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String tablesid = request.getParameter("tableid");
         AddOderDAO tdao = new AddOderDAO();
         Table t = tdao.getTableById(tablesid);
@@ -45,18 +51,12 @@ public class UpdateOrderServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+
         String idTable = request.getParameter("table");
         AddOderDAO dao = new AddOderDAO();
-        List<Order_Dish> list = dao.getOrder_Dish(idTable)
-
         if (dao.checkFreeTable(idTable)) {
             String[] id = request.getParameterValues("id");
             String[] quantity = request.getParameterValues("quantity");
@@ -67,12 +67,11 @@ public class UpdateOrderServlet extends HttpServlet {
                 dao.addToOrder_Dish(order, id[i], quantity[i], price[i]);
             }
             request.setAttribute("message", "Order has been add.");
-            request.getRequestDispatcher("Table.jsp").forward(request, response);
+            request.getRequestDispatcher("Table").forward(request, response);
         } else {
             request.setAttribute("message", "Table now is not free.");
-            request.getRequestDispatcher("Table.jsp").forward(request, response);
+            request.getRequestDispatcher("Table").forward(request, response);
         }
-        request.getRequestDispatcher("Table.jsp").forward(request, response);
 
     }
 

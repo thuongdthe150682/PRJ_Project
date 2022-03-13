@@ -63,25 +63,43 @@ public class FixOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String[] dishid = request.getParameterValues("chose");
+        String[] dishedid = request.getParameterValues("chose");
+        String[] dishesid = request.getParameterValues("chosee");
+        String orderId =request.getParameter("orderId");
         String table = request.getParameter("table");
         List<Dish> list = new ArrayList<>();
-        DishDAO dao = new DishDAO();
+        List<Order_Dish> listO = new ArrayList<>();
+        AddOderDAO dao = new AddOderDAO();
+        DishDAO daoo = new DishDAO();
+        
         AddOderDAO Odao = new AddOderDAO();
-        if (dishid != null) {
-            for (String dishid1 : dishid) {
-                list.add(dao.getDishesById(dishid1));
+        if (dishedid!=null) {
+            for (String dishid1 : dishedid) {
+                listO.add(dao.getOrder_Dish(orderId, dishid1)) ;
+                list.add(daoo.getDishesById(dishid1));
             }
         }
-        if (dishid == null) {
+        if (dishesid != null) {
+            for (String dishid1 : dishesid) {
+                Dish d = daoo.getDishesById(dishid1);
+                int did = Integer.parseInt(dishid1);
+                int oid = Integer.parseInt(orderId);
+                listO.add(new Order_Dish(oid,did , 1, d.getPrice()));
+                list.add(d);
+            }
+            
+        } 
+        if(dishedid == null && dishesid == null){
             request.setAttribute("message", "No dish is chosen.");
-            request.getRequestDispatcher("Table").forward(request, response);
-        } else {
+        }
+            
+            request.setAttribute("orderId", orderId);
             request.setAttribute("checked", "order");
             request.setAttribute("list", list);
+            request.setAttribute("listO", listO);
             request.setAttribute("table", Odao.getTableById(table));
-            request.getRequestDispatcher("ConfirmOrder.jsp").forward(request, response);
-        }
+            request.getRequestDispatcher("ConfirmFixOrder.jsp").forward(request, response);
+        
     }
 
  

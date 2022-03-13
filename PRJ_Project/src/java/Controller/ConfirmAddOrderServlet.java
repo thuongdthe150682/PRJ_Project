@@ -49,12 +49,12 @@ public class ConfirmAddOrderServlet extends HttpServlet {
                 dao.addToOrder_Dish(order, id[i], quantity[i], price[i]);
             }
             request.setAttribute("message", "Order has been add.");
-            request.getRequestDispatcher("Table.jsp").forward(request, response);
+            request.getRequestDispatcher("Table").forward(request, response);
         }else{
             request.setAttribute("message", "Table now is not free.");
-            request.getRequestDispatcher("Table.jsp").forward(request, response);
+            request.getRequestDispatcher("Table").forward(request, response);
         }
-        request.getRequestDispatcher("Table.jsp").forward(request, response);
+        
     }
 
 

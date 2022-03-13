@@ -1,4 +1,3 @@
-
 package Controller;
 
 import DAO.AddOderDAO;
@@ -12,10 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "ConfirmFixOrderServlet", urlPatterns = {"/ConfirmFixOrder"})
 public class ConfirmFixOrderServlet extends HttpServlet {
-
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -25,7 +22,7 @@ public class ConfirmFixOrderServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConfirmFixOrderServlet</title>");            
+            out.println("<title>Servlet ConfirmFixOrderServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ConfirmFixOrderServlet at " + request.getContextPath() + "</h1>");
@@ -33,7 +30,6 @@ public class ConfirmFixOrderServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,10 +39,9 @@ public class ConfirmFixOrderServlet extends HttpServlet {
         AddOderDAO dao = new AddOderDAO();
         dao.deleteAnOrder(orderId, tableId);
         request.setAttribute("message", "Order has been delete.");
-        request.getRequestDispatcher("Table.jsp").forward(request, response);
+        request.getRequestDispatcher("Table").forward(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -55,45 +50,57 @@ public class ConfirmFixOrderServlet extends HttpServlet {
         List<Order_Dish> list = dao.getOrder_Dish(orderId);
         String idTable = request.getParameter("table");
         boolean check = true;
-        if(!dao.checkFreeTable(idTable)){
-            String [] id = request.getParameterValues("id");
-            String [] quantity = request.getParameterValues("quantity");
-            String [] price = request.getParameterValues("price");
-            for (int i = 0; i < id.length; i++) {
-                check=true;
-                for (int j = 0; j < list.size(); j++) {
-                    if(id[i].equals(list.get(j).getDishId())){
-                        dao.updateOrder_Dish(orderId, id[i], price[i], quantity[i]);
+        if (!dao.checkFreeTable(idTable)) {
+            String[] id = request.getParameterValues("id");
+            String[] quantity = request.getParameterValues("quantity");
+            String[] price = request.getParameterValues("price");
+            if (id != null) {
+                for (int i = 0; i < id.length; i++) {
+                    check = true;
+                    for (int j = 0; j < list.size(); j++) {
+                        int idd = Integer.parseInt(id[i]);
+                        if (idd==list.get(j).getDishId()) {
+                            dao.updateOrder_Dish(orderId, id[i], price[i], quantity[i]);
+                            check = false;
+                            break;
+                        }
                     }
-                    check=false;
-                    break;
-                }
-                if(check){
-                    dao.addOrder_Dish(orderId, id[i], price[i], quantity[i]);
-                }
-            }
-            for (int i = 0; i < list.size(); i++) {
-                check =true;
-                for (String id1 : id) {
-                    if (id1.equals(list.get(i).getDishId())) {
-                        check=false;
-                        break;
+                    if (check) {
+                        dao.addOrder_Dish(orderId, id[i], price[i], quantity[i]);
                     }
                 }
-                if(check){
-                    dao.deleteOrder_Dish(orderId, list.get(i).getDishId()+"");
+                for (int i = 0; i < list.size(); i++) {
+                    check = true;
+                    
+                    for (String id1 : id) {
+                        int idd= Integer.parseInt(id1);
+                        if (idd==list.get(i).getDishId()) {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check) {
+                        dao.deleteOrder_Dish(orderId, list.get(i).getDishId() + "");
+                    }
                 }
             }
+//            request.setAttribute("id", id);
+//            request.setAttribute("price", price);
+//            request.setAttribute("quantity", quantity);
+//            request.setAttribute("idTable", idTable);
+//            request.setAttribute("orderId", orderId);
+//            request.setAttribute("aa", id.length - list.size());
+//            request.getRequestDispatcher("check.jsp").forward(request, response);
             request.setAttribute("message", "Order has been fix.");
-            request.getRequestDispatcher("Table.jsp").forward(request, response);
-        }else{
-            request.setAttribute("message", "Order has finished.");
-            request.getRequestDispatcher("Table.jsp").forward(request, response);
+            request.getRequestDispatcher("Table").forward(request, response);
         }
-        
+            else {
+            request.setAttribute("idTable", idTable);
+            request.setAttribute("message", "Order has finished.");
+            request.getRequestDispatcher("Table").forward(request, response);
+        }
     }
 
-  
     @Override
     public String getServletInfo() {
         return "Short description";

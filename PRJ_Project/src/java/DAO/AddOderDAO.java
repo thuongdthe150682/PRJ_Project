@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.Dish;
 import Model.Order_Dish;
 import Model.Table;
 import java.sql.PreparedStatement;
@@ -174,6 +175,25 @@ public class AddOderDAO extends BaseDAO {
         }
         return null;
     }
+    public Order_Dish getOrder_Dish(String orderID,String dishId) {
+        try {
+            String query = "select * from Order_Dish where OrderID=? and dishid=?";
+            List<Order_Dish> list = new ArrayList<>();
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, orderID);
+            ps.setString(2, dishId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Order_Dish(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4));
+            }
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
     public void deleteAnOrder(String Orderid ,String tableID){
          try {
             // delete in table Orders
@@ -247,12 +267,22 @@ public class AddOderDAO extends BaseDAO {
         return null;
     }
 
-//    public static void main(String[] args) {
-//        AddOderDAO dao = new AddOderDAO();
+    public static void main(String[] args) {
+        AddOderDAO dao = new AddOderDAO();
 //        List<Table> list = dao.getAllTable();
 //        boolean check = dao.checkFreeTable("1");
 //        String orderId = dao.getCurrentOrderByTableId("1");
-//        Table t  = dao.getTableById("2");
-//        System.out.println(t);
-//    }
+//        Table t  = dao.getTableByOrderID("5");
+//        //dao.addToOrder_Dish("6", "1", "1", "30");
+//        dao.updateOrder_Dish("6", "5", "3", "60");
+//        List<Order_Dish> listt = dao.getOrder_Dish("6");
+//        System.out.println(listt);
+        List<Order_Dish> list= dao.getOrder_Dish("6");
+        System.out.println(list.size());
+        System.out.println(list.get(0).getDishId()+" "+list.get(1).getDishId());
+        DishDAO dishDAO = new DishDAO();
+        List<Dish> listt= dishDAO.getDishesByCategoryExcept("1", list);
+        List<Dish> listtt= dishDAO.getDishesByCategory("1");
+        System.out.println(listtt.get(0).getId()+" "+listtt.get(1).getId());
+    }
 }

@@ -21,7 +21,7 @@ public class DishDAO extends BaseDAO {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getFloat(4),
                         rs.getString(5),
                         rs.getBoolean(6),
                         rs.getInt(7)
@@ -46,7 +46,7 @@ public class DishDAO extends BaseDAO {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getFloat(4),
                         rs.getString(5),
                         rs.getBoolean(6),
                         rs.getInt(7)
@@ -72,7 +72,7 @@ public class DishDAO extends BaseDAO {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getFloat(4),
                         rs.getString(5),
                         rs.getBoolean(6),
                         rs.getInt(7)
@@ -92,20 +92,20 @@ public class DishDAO extends BaseDAO {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
-            boolean check ;
+            int  check ;
             while (rs.next()) {
-                check = true;
+                check = 0;
                 for (int i = 0; i < list.size(); i++) {
-                    if(rs.getString(1).equals(list.get(i).getDishId())){
-                        check=false;
-                        break;
+                    if(rs.getInt(1)== list.get(i).getDishId()){
+                        check += 1;
                     }
                 }
-                if(check) listD.add(new Dish(
+             //   System.out.println(check);
+                if(check==0) listD.add(new Dish(
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getFloat(4),
                         rs.getString(5),
                         rs.getBoolean(6),
                         rs.getInt(7)
@@ -130,7 +130,7 @@ public class DishDAO extends BaseDAO {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getFloat(4),
                         rs.getString(5),
                         rs.getBoolean(6),
                         rs.getInt(7)
@@ -144,6 +144,8 @@ public class DishDAO extends BaseDAO {
 //    public static void main(String[] args) {
 //        DishDAO dao = new DishDAO();
 //        List<Dish> list = dao.getAllDishes();
+//        AddOderDAO daoo = new AddOderDAO();
+//        list = dao.getDishesByCategoryExcept("1", daoo.getOrder_Dish("6"));
 //        System.out.println(list.size());
 //                
 //    }

@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ConfirmOrder.jsp</title>
+        <title>ConfirmFixOrder.jsp</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/addOrder.css" rel="stylesheet" type="text/css"/>
         <link href="Css/confirmOrder.css" rel="stylesheet" type="text/css"/>
@@ -18,7 +18,11 @@
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
         <h5>Add ${table.getName()}</h5>
-        <form action="UpdateOrder" method="post">
+        <c:if test="${list.size()==0}">
+            <p class="message">${message}</p>
+        </c:if>
+        <c:if test="${list.size()>0}">
+        <form action="ConfirmFixOrder" method="post">
             <input type="text" class="tablee" value="${table.getId()}" readonly>
             <table class="table">
                 <thead>
@@ -30,19 +34,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="o" items="${list}">
+                    <c:forEach var="i" begin="0" end="${list.size()-1}">
                         <tr>
-                            <td><input class="input" type="text" name="id" value="${o.getId()}" readonly/></td>
-                            <td><input class="input" type="text" name="name" value="${o.getName()}" readonly/></td>
-                            <td><input class="input" type="number" name="price" value="${o.getPrice()}"/></td>
-                            <td><input class="input" type="number" name="quantity" value="1"/></td>
+                            <td><input class="input" type="text" name="id" value="${list.get(i).getId()}" readonly/></td>
+                            <td><input class="input" type="text" name="name" value="${list.get(i).getName()}" readonly/></td>
+                            <td><input class="input" type="number" name="price" value="${listO.get(i).getPrice()}"/></td>
+                            <td><input class="input" type="number" name="quantity" value="${listO.get(i).getQuantity()}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
             <input class="tablee" type="text" name="table" value="${table.getId()}" readonly/>
+            <input class="tablee" type="text" name="orderId" value="${orderId}" readonly/>
             <button class="buttonn" type="submit" onclick="aa()">Fix Order</button>
         </form>
+        </c:if>
 
         <jsp:include page="Footer.jsp"></jsp:include>
 <!--        <script>

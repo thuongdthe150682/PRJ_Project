@@ -16,7 +16,7 @@
         </nav>
     </div>
 </c:if>
-
+<p class="message">${message}</p>
 <table class="table">
     <thead>
         <tr>

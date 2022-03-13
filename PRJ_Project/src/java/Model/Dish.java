@@ -6,7 +6,7 @@ public class Dish {
     private int Id;
     private String Name;
     private String Description;
-    private double Price;
+    private float Price;
     private String Image;
     private boolean Status;
     private int Category_Id;
@@ -14,7 +14,7 @@ public class Dish {
     public Dish() {
     }
 
-    public Dish(int Id, String Name, String Description, double Price, String Image, boolean Status, int Category_Id) {
+    public Dish(int Id, String Name, String Description, float Price, String Image, boolean Status, int Category_Id) {
         this.Id = Id;
         this.Name = Name;
         this.Description = Description;
@@ -48,11 +48,11 @@ public class Dish {
         this.Description = Description;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return Price;
     }
 
-    public void setPrice(double Price) {
+    public void setPrice(float Price) {
         this.Price = Price;
     }
 

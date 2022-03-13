@@ -17,6 +17,7 @@
                 <h5 class="add_table">Order ${orderId}: Table ${table.getName()}</h5>
             <form action="ConfirmAddOrder" method="post">
                 <p style="margin-left: 5%;">Payment:</p>
+                <c:if test="${list.size() > 0}">
                 <table class="table" style="margin-left: 5%;">
                     <tbody>
                         <c:forEach var="i" begin="0" end="${list.size()-1}" >
@@ -24,19 +25,20 @@
                                 <td style="margin-left: 0.5em;">${list.get(i).getDishId()}.${listDish.get(i).getName()}</td>
                                 <td>${list.get(i).getPrice()}</td>
                                 <td>${list.get(i).getQuantity()}</td>
-                                <td>${payment[i]}</td>
+                                <td>${payment[i]}$</td>
                             </tr>
                         </c:forEach>
                         <tr>
                             <td></td>  
                             <td></td> 
                             <td>Total</td> 
-                            <td>${total}</td> 
+                            <td>${total}$</td> 
                         </tr>
                     </tbody>
                 </table>
+                </c:if>
                 <br>
-                <a class="button"style="margin-left: 60%;" href="ConfirmFixOrder?orderId=${orderId}&tableID=${table.getID}">Delete</a>
+                <a class="button"style="margin-left: 60%;" href="ConfirmFixOrder?orderId=${orderId}&tableID=${table.getId()}">Delete</a>
                 <a class="button" href="FixOrder?orderId=${orderId}">Fix</a>
                 <input class="tablee" type="text" name="orderId" value="${orderId}" readonly />
                 <button class="button" type="submit" >Done</button>   
