@@ -1,5 +1,5 @@
 
-package Controller;
+package Control;
 
 import DAO.AddOderDAO;
 import DAO.CategoryDAO;
@@ -14,19 +14,18 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "FixOrderServlet", urlPatterns = {"/FixOrderr"})
-public class FixOrderServlet extends HttpServlet {
+public class FixOrderControl extends HttpServlet {
 
-
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+     response.setContentType("text/html;charset=UTF-8");
         String orderId = request.getParameter("orderId");
         AddOderDAO dao = new AddOderDAO();
         Table t = dao.getTableByOrderID(orderId);
@@ -52,18 +51,17 @@ public class FixOrderServlet extends HttpServlet {
         request.getRequestDispatcher("FixOrder.jsp").forward(request, response);
     }
 
-  
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String[] dishedid = request.getParameterValues("chose");
+       String[] dishedid = request.getParameterValues("chose");
         String[] dishesid = request.getParameterValues("chosee");
         String orderId =request.getParameter("orderId");
         String table = request.getParameter("table");
@@ -99,10 +97,9 @@ public class FixOrderServlet extends HttpServlet {
             request.setAttribute("listO", listO);
             request.setAttribute("table", Odao.getTableById(table));
             request.getRequestDispatcher("ConfirmFixOrder.jsp").forward(request, response);
-        
     }
 
- 
+  
     @Override
     public String getServletInfo() {
         return "Short description";

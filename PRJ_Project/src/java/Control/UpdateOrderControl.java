@@ -1,4 +1,5 @@
-package Controller;
+
+package Control;
 
 import DAO.AddOderDAO;
 import DAO.DishDAO;
@@ -6,27 +7,29 @@ import Model.Dish;
 import Model.Order_Dish;
 import Model.Table;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "UpdateOrderServlet", urlPatterns = {"/UpdateOrderr"})
-public class UpdateOrderServlet extends HttpServlet {
+
+public class UpdateOrderControl extends HttpServlet {
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+    
     }
 
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String tablesid = request.getParameter("tableid");
+       String tablesid = request.getParameter("tableid");
         AddOderDAO tdao = new AddOderDAO();
         Table t = tdao.getTableById(tablesid);
         DishDAO ddao = new DishDAO();
@@ -50,11 +53,10 @@ public class UpdateOrderServlet extends HttpServlet {
         request.getRequestDispatcher("SeeOrder.jsp").forward(request, response);
     }
 
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-
         String idTable = request.getParameter("table");
         AddOderDAO dao = new AddOderDAO();
         if (dao.checkFreeTable(idTable)) {
@@ -72,9 +74,9 @@ public class UpdateOrderServlet extends HttpServlet {
             request.setAttribute("message", "Table now is not free.");
             request.getRequestDispatcher("Table").forward(request, response);
         }
-
     }
 
+   
     @Override
     public String getServletInfo() {
         return "Short description";

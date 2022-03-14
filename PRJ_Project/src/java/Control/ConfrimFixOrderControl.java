@@ -1,4 +1,9 @@
-package Controller;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Control;
 
 import DAO.AddOderDAO;
 import Model.Order_Dish;
@@ -6,35 +11,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ConfirmFixOrderServlet", urlPatterns = {"/ConfirmFixOrderr"})
-public class ConfirmFixOrderServlet extends HttpServlet {
 
+public class ConfrimFixOrderControl extends HttpServlet {
+
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ConfirmFixOrderServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ConfirmFixOrderServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String tableId = request.getParameter("tableID");
+      String tableId = request.getParameter("tableID");
         String orderId = request.getParameter("orderId");
         AddOderDAO dao = new AddOderDAO();
         dao.deleteAnOrder(orderId, tableId);
@@ -42,6 +30,14 @@ public class ConfirmFixOrderServlet extends HttpServlet {
         request.getRequestDispatcher("Table").forward(request, response);
     }
 
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -101,6 +97,7 @@ public class ConfirmFixOrderServlet extends HttpServlet {
         }
     }
 
+  
     @Override
     public String getServletInfo() {
         return "Short description";

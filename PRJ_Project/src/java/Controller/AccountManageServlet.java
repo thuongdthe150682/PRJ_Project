@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
 import DAO.AccountDAO;
 import Model.Account;
-import Model.Staff;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "AccountManageServlet", urlPatterns = {"/Account"})
+@WebServlet(name = "AccountManageServlet", urlPatterns = {"/Accountt"})
 public class AccountManageServlet extends HttpServlet {
 
 

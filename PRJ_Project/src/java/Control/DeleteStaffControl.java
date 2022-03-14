@@ -1,52 +1,37 @@
 
-package Controller;
+package Control;
 
-import DAO.CategoryDAO;
-import DAO.DishDAO;
-import Model.Category;
-import Model.Dish;
+import DAO.AccountDAO;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "MenuServlet", urlPatterns = {"/Menuu"})
-public class MenuServlet extends HttpServlet {
+public class DeleteStaffControl extends HttpServlet {
 
-   
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DishDAO dao = new DishDAO();
-        List<Dish> list = dao.getAllDishes();
-        
-        CategoryDAO daoc = new CategoryDAO();
-        List<Category> listC = daoc.getAllCategory();
-        
-        String id = "0";
-        if(request.getParameter("id")!=null){
-            id = request.getParameter("id");
-            list = dao.getDishesByCategory(id);
-        }
-        request.setAttribute("id", id);
-        request.setAttribute("list", list);
-        request.setAttribute("listC", listC);
-        request.setAttribute("active", "menu");
-        request.getRequestDispatcher("Menu.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        String user = request.getParameter("user");
+        AccountDAO dao = new AccountDAO();
+        dao.deleteStaff(user);
+        String s = "Inform of user "+ user +"has been deleted";
+        request.setAttribute("message", s);
+        request.getRequestDispatcher("SeeAccount.jsp").forward(request, response);
     }
 
-  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-  
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -1,18 +1,16 @@
 
-package Controller;
+package Control;
 
 import DAO.AddOderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "ConfirmAddOrderServlet", urlPatterns = {"/ConfirmAddOrderr"})
-public class ConfirmAddOrderServlet extends HttpServlet {
+public class ConfirmAddOrderControl extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -22,16 +20,16 @@ public class ConfirmAddOrderServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConfirmAddOrderServlet</title>");            
+            out.println("<title>Servlet ConfirmAddOrderControl</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConfirmAddOrderServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConfirmAddOrderControl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-
+  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -57,7 +55,7 @@ public class ConfirmAddOrderServlet extends HttpServlet {
         
     }
 
-
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

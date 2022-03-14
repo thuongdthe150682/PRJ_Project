@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "DishManageServlet", urlPatterns = {"/DishManage"})
+@WebServlet(name = "DishManageServlet", urlPatterns = {"/DishManagee"})
 public class DishManageServlet extends HttpServlet {
 
   

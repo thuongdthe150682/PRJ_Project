@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "TableServlet", urlPatterns = {"/Table"})
+@WebServlet(name = "TableServlet", urlPatterns = {"/Tablee"})
 public class TableServlet extends HttpServlet {
 
  
