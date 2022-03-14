@@ -19,10 +19,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 list.add(new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 ));
@@ -42,10 +42,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 list.add(new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 ));
@@ -68,10 +68,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 list.add(new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 ));
@@ -94,10 +94,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 list.add(new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 ));
@@ -119,10 +119,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 list.add(new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 ));
@@ -154,10 +154,10 @@ public class DishDAO extends BaseDAO {
                 if (check == 0) {
                     listD.add(new Dish(
                             rs.getInt(1),
-                            rs.getString(2),
-                            rs.getString(3),
+                            rs.getString(2).trim(),
+                            rs.getString(3).trim(),
                             rs.getFloat(4),
-                            rs.getString(5),
+                            rs.getString(5).trim(),
                             rs.getBoolean(6),
                             rs.getInt(7)
                     ));
@@ -180,10 +180,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 return new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 );
@@ -202,10 +202,10 @@ public class DishDAO extends BaseDAO {
             while (rs.next()) {
                 return new Dish(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
+                        rs.getString(2).trim(),
+                        rs.getString(3).trim(),
                         rs.getFloat(4),
-                        rs.getString(5),
+                        rs.getString(5).trim(),
                         rs.getBoolean(6),
                         rs.getInt(7)
                 );

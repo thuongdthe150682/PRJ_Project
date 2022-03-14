@@ -24,3 +24,27 @@ h5{
 .footer{
     margin-top: 0.5em;
 }
+.addanA{
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: 5%;
+    padding: 0.5em 1em 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color:chartreuse;
+    font-size: 0.7em;
+}
+.addanA:hover{
+    background-color: yellow;
+}
+.search{
+    margin-top: 1em;
+}
+.close{
+    text-decoration: none;
+    color:crimson ;
+    font-size: 0.8em;
+}
+close:hover{
+    color: darkred;
+}

@@ -4,7 +4,7 @@
 <html>
     <head lang="en">
         <meta charset="utf-8">
-        <title>Reservation</title>
+        <title>Manage Dish</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/ManageDish.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Manage.css" rel="stylesheet" type="text/css"/>
@@ -17,6 +17,7 @@
                         <a href="Table" ${checked eq "order"? "id='checked'":""}>Manage Orders</a>
                     <a href="DishManage" ${checked eq "dish"? "id='checked'":""}>Manage Dishes</a>
                     <a href="Reserve" ${checked eq "reserve"? "id='checked'":""}>Manage Reservation</a>
+                    <a href="Account" ${checked eq "account"? "id='checked'":""}>Manage Account</a>
                     <a href="" ${checked eq "revenue"? "id='checked'":""}>Manage Revenue</a>
                 </nav>
             </div>

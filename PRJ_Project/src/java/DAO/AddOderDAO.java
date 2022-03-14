@@ -19,7 +19,7 @@ public class AddOderDAO extends BaseDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Table(rs.getString(1),
-                        rs.getString(2),
+                        rs.getString(2).trim(),
                         rs.getInt(3)
                 ));
             }
@@ -37,8 +37,8 @@ public class AddOderDAO extends BaseDAO {
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                return new Table(rs.getString(1),
-                        rs.getString(2),
+                return new Table(rs.getString(1).trim(),
+                        rs.getString(2).trim(),
                         rs.getInt(3)
                 );
             }
@@ -167,7 +167,7 @@ public class AddOderDAO extends BaseDAO {
                 list.add(new Order_Dish(rs.getInt(1),
                         rs.getInt(2),
                         rs.getInt(3),
-                        rs.getInt(4)));
+                        rs.getFloat(4)));
             }
             return list;
         } catch (SQLException e) {
@@ -187,7 +187,7 @@ public class AddOderDAO extends BaseDAO {
                 return new Order_Dish(rs.getInt(1),
                         rs.getInt(2),
                         rs.getInt(3),
-                        rs.getInt(4));
+                        rs.getFloat(4));
             }
         } catch (SQLException e) {
             e.getStackTrace();
@@ -256,8 +256,8 @@ public class AddOderDAO extends BaseDAO {
                 ps.setString(1, tableid);
                 ResultSet rss = ps.executeQuery();
                 while (rss.next()) {
-                    return new Table(rss.getString(1),
-                            rss.getString(2),
+                    return new Table(rss.getString(1).trim(),
+                            rss.getString(2).trim(),
                             rss.getInt(3));
                 }
             }

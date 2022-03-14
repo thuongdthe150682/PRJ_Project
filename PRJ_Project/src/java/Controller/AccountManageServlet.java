@@ -1,8 +1,13 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
-import DAO.AddOderDAO;
-import Model.Table;
+import DAO.AccountDAO;
+import Model.Account;
+import Model.Staff;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -13,21 +18,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "TableServlet", urlPatterns = {"/Table"})
-public class TableServlet extends HttpServlet {
+@WebServlet(name = "AccountManageServlet", urlPatterns = {"/Account"})
+public class AccountManageServlet extends HttpServlet {
 
- 
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        AddOderDAO dao = new  AddOderDAO();
-        List<Table> list = dao.getAllTable();
-        String message = (String)request.getAttribute("message");
-        request.setAttribute("checked", "order");
-        request.setAttribute("message", message);
+        AccountDAO dao = new AccountDAO();
+        
+        List<Account> list = dao.getAllAccount();
+        request.setAttribute("message", request.getAttribute("message"));
+        request.setAttribute("mess", request.getAttribute("mess"));
+        request.setAttribute("account", request.getAttribute("account"));
+        request.setAttribute("task", request.getAttribute("task"));
         request.setAttribute("list", list);
-        request.getRequestDispatcher("Table.jsp").forward(request, response);
-     
+        request.setAttribute("active", "manage");
+        request.setAttribute("checked", "account");
+        request.getRequestDispatcher("ManageAccount.jsp").forward(request, response);
     }
 
   
@@ -36,7 +44,6 @@ public class TableServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

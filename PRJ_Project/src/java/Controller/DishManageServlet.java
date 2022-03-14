@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
 import DAO.CategoryDAO;
@@ -18,10 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author HP
- */
+
 @WebServlet(name = "DishManageServlet", urlPatterns = {"/DishManage"})
 public class DishManageServlet extends HttpServlet {
 
@@ -46,7 +39,8 @@ public class DishManageServlet extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("listP", listP);
         request.setAttribute("listC", listC);
-        request.setAttribute("active", "dish");
+        request.setAttribute("active", "manage");
+        request.setAttribute("checked", "dish");
         request.getRequestDispatcher("ManageDish.jsp").forward(request, response);
     }
 
