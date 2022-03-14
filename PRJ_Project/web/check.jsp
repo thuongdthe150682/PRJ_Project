@@ -4,6 +4,7 @@
     Author     : HP
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,16 +13,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        ${id[0]}.${id[1]}.${id[2]}.${id[3]}<br>
-        ${price[0]}.${price[1]}.${price[2]}.${price[3]}<br>
-        ${quantity[0]}.${quantity[1]}.${quantity[2]}.${quantity[3]}<br>
-        ${idTable}<br>
-        ${orderId}<br>
-        ------------------
-        ${aa}
-        ${list.size()}
-        ${list.get(0).getDishId()}
-        
+        ${listC.get(0).getId()}
+        ${dish.getCategory_Id()}
+        ${o.getId() == dish.getCategory_Id()?"checked":""}
         
     </body>
 </html>

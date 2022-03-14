@@ -177,4 +177,10 @@ body{
 .specialdish{
     clear: both;
 }
+.tablee{
+    display: none;
+}
+.pause{
+    color: #888;
+}
 

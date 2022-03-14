@@ -13,9 +13,20 @@
         <title>Reserve</title>
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/reserve.css" rel="stylesheet" type="text/css"/>
+        <link href="Css/Manage.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
+        <c:if test="${sessionScope.acc.isManager == 1}">
+            <div class="nav-bar">
+                <nav>
+                    <a href="Table" ${checked eq "order"? "id='checked'":""}>Manage Orders</a>
+                    <a href="DishManage" ${checked eq "dish"? "id='checked'":""}>Manage Dishes</a>
+                    <a href="Reserve" ${checked eq "reserve"? "id='checked'":""}>Manage Reservation</a>
+                    <a href="" ${checked eq "revenue"? "id='checked'":""}>Manage Revenue</a>
+                </nav>
+            </div>
+        </c:if>
         ${message}
         <div class="adish">
             <div class="rleft col">

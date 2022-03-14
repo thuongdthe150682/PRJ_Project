@@ -4,7 +4,6 @@ package Controller;
 import DAO.ReserveDAO;
 import Model.Reservation;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,6 +34,7 @@ public class ReserveServlet extends HttpServlet {
         
         String id = request.getParameter("id");
         Reservation reserve = dao.getReservationById(id);
+        request.setAttribute("checked", "reserve");
         request.setAttribute("id", id);
         request.setAttribute("reserve", reserve);
         request.setAttribute("active", "Reserve");
