@@ -54,3 +54,15 @@ body{
     color: crimson;
     font-family: serif;
 }
+.search{
+    margin: 0 auto;
+}
+.search button{
+    border: none;
+    border-radius: 0.2em;
+    background: yellowgreen;
+    padding: 0.5em 1em 0.5em 1em;
+}
+.search button:hover{
+    background: yellow;
+}

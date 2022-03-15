@@ -37,13 +37,7 @@
 
                 </div>
                 <div class="mright">
-                    searh:${search} // id:${id} // page:${page} // list:${listD.size()}//listD:${list.size()}
-                    <c:if test="${total > 1}">
-                        <c:forEach var = "i" begin = "1" end = "${total}">
-                            <a href="Menu?page=${i}&search=${search}&id=${id}"><b>${i}</b></a> 
-                                </c:forEach>
-                    </c:if>
-                        <c:forEach items="${list}" var="o">
+                    <c:forEach items="${list}" var="o">
                         <div class="adish">
                             <img class="left col"src="${o.getImage()}" alt="">
                             <div class="right col">
@@ -53,8 +47,13 @@
                             </div>
                         </div>
                     </c:forEach>
+                    <c:forEach var = "i" begin = "1" end = "${total}">
+                        <a href="Menu?page=${i}&search=${search}&id=${id}"><b>${i}</b></a> 
+                    </c:forEach>
                 </div>
+
             </div>
+
             <jsp:include page="Footer.jsp"></jsp:include>
         </div>
     </body>
