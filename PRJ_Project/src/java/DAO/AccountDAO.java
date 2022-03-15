@@ -12,6 +12,7 @@ public class AccountDAO extends BaseDAO {
 
     public List<Account> getAllAccount() {
         List<Account> list = new ArrayList<>();
+     
         try {
             String query = "select * from account";
             PreparedStatement ps = connection.prepareStatement(query);

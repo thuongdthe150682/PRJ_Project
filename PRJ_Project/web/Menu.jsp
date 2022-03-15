@@ -22,37 +22,41 @@
             </form>
             <div class="head">
                 <div class="mleft">
-                    <nav>
-                        <a class="btn" <c:if test="${id eq 0}"> style="background-color:paleturquoise;
-                           color: black;"</c:if>
-                            href="Menu?search=${search}">All Dishes</a>
-                    </nav>
-                    <c:forEach items="${listC}" var="o">
-                        <nav>
-                            <a class="btn" <c:if test="${id eq o.getId()}"> style="background-color:paleturquoise;
-                               color: black;"</c:if>
-                                href="Menu?id=${o.getId()}&search=${search}">${o.getName()}</a>
-                        </nav>
-                    </c:forEach>
+                    <ul>
+                        <li><a <c:if test="${id eq 0}"> style="background-color:paleturquoise;
+                                                        color: black;"</c:if>
+                                href="Menu?search=${search}">All Dishes</a></li>
 
+                        <c:forEach items="${listC}" var="o">
+
+                            <li> <a  <c:if test="${id eq o.getId()}"> style="background-color:paleturquoise;
+                                                                      color: black;"</c:if>
+                                    href="Menu?id=${o.getId()}&search=${search}">${o.getName()}</a></li>
+
+                        </c:forEach>
+                    </ul>
                 </div>
                 <div class="mright">
-                    searh:${search} // id:${id} // page:${page} // list:${listD.size()}//listD:${list.size()}
-                    <c:if test="${total > 1}">
-                        <c:forEach var = "i" begin = "1" end = "${total}">
-                            <a href="Menu?page=${i}&search=${search}&id=${id}"><b>${i}</b></a> 
-                                </c:forEach>
-                    </c:if>
+                    <div style="width: 100%;" class="specialdish adish">
                         <c:forEach items="${list}" var="o">
-                        <div class="adish">
-                            <img class="left col"src="${o.getImage()}" alt="">
-                            <div class="right col">
-                                <h3>${o.getPrice()}</h3>
-                                <p>${o.getName()}</p>
-                                <p>${o.getDescription()}</p>
+                            <div class="adish col">
+                                <img class="left col"src="${o.getImage()}" alt="">
+                                <div class="right col">
+                                    <h3>${o.getPrice()}$</h3>
+                                    <p>${o.getName()}</p>
+                                    <p>${o.getDescription()}</p>
+                                </div>
                             </div>
+                        </c:forEach>
+                    </div>
+                    <c:if test="${total > 1}">
+                        <div class="paging" style="margin-left: 5%;">
+                            <c:forEach var = "i" begin = "1" end = "${total}">
+                                <a href="Menu?page=${i}&search=${search}&id=${id}"><b>${i}</b></a> 
+                                    </c:forEach>
+                            <a href="Menu?search=${search}&all=true"><b>All</b></a>
                         </div>
-                    </c:forEach>
+                    </c:if>
                 </div>
             </div>
             <jsp:include page="Footer.jsp"></jsp:include>

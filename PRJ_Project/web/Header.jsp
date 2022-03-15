@@ -5,7 +5,7 @@
 <div class="menu" style="background-color: white;">
     <nav>
         <a  href="Home" ${active eq "home"? "id='active'":""}>Home</a>
-        <a href="Menu" ${active eq "menu"? "id='active'":""}>Menu</a>
+        <a href="Menu?all=true" ${active eq "menu"? "id='active'":""}>Menu</a>
         <a  href="SpecialDishes" ${active eq "specialDishes"? "id='active'":""}>Special Dishes</a>
         <img src="Images/Logoo.png" alt="logo">
         <c:if test="${sessionScope.acc.isManager == 1}">

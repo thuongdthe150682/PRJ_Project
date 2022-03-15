@@ -108,7 +108,7 @@ body{
 .right {
     float: right;
     width: 50%;
-    padding-bottom: 10px;
+    padding-bottom: 0;
     margin-bottom: 0;
 }
 .right img{
@@ -164,11 +164,12 @@ body{
     width: 70%;
     height: auto;
 }
-.adish{
-    clear: both;
+
+.specialdish .adish{
+    float:left;
     display: table; 
-    width: 100%;
-    
+    width: 45%;
+    font-size: 0.7em;
 }
 .col {
   display: table-cell; 

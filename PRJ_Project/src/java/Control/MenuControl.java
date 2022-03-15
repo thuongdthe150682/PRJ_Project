@@ -49,7 +49,9 @@ public class MenuControl extends HttpServlet {
             list = dao.getAllDishes();
             listD = dao.getAllDishes(page);
         }
-
+        if(request.getParameter("all")!=null && request.getParameter("all").equals("true")){
+            listD=list;
+        }
         int total = 0;
         if (list != null) {
             if (list.size() % 2 == 0) {

@@ -18,7 +18,7 @@
                         <div>
                             <h2>We Love <br>Delicious Foods!</h2>
                             <div class="pleft">
-                                <a class="btn" href="Menu" role="button">Explore Menu</a>
+                                <a class="btn" href="Menu?all=true" role="button">Explore Menu</a>
                                 <p>Call to order: 0582 642 654</p>
                             </div>
 
@@ -38,7 +38,7 @@
                 </div>
                 <h3 id="newfood" style="color: palevioletred; text-align: center;
                     font-family: serif; font-size: 2em;">New foods</h3>
-                <div class="specialdish">
+              <div class="specialdish">
                 <c:forEach items="${list}" var="o">
                     <div class="adish">
                         <img class="left col" src="${o.getImage()}" alt="">

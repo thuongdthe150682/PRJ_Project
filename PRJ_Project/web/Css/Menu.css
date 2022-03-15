@@ -26,14 +26,15 @@ body{
     margin-left: 5%;
     width: 75%;
 }
-.adish{
+.specialdish .adish{
+    float:left;
     display: table; 
-    width: 100%;
-    
+    width: 45%;
+    font-size: 0.7em;
 }
 .col {
-  display: table-cell; 
-  margin-bottom: 1em;
+    display: table-cell; 
+
 }
 .left img{
     width: 80%;
@@ -49,8 +50,9 @@ body{
     border-radius: 0;
     border: 1px solid darksalmon;
 }
-.newfood{
-    margin-left: 40%;
+#newfood{
+    clear: both;
+    text-align: center;
     color: crimson;
     font-family: serif;
 }
@@ -66,3 +68,45 @@ body{
 .search button:hover{
     background: yellow;
 }
+.paging a:link, a:visited{
+    background-color: powderblue;
+    color: white;
+    padding: 0.5em 0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.paging{
+    clear: both;
+    margin-left: 0;
+}
+.paging a:hover, a:active {
+    background-color: aqua;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  
+}
+
+li a {
+  display: block;
+  color: darkslategray;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
