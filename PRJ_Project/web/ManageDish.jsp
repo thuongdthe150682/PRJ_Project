@@ -13,15 +13,7 @@
     </head>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
-        <div class="nav-bar">
-        <nav>
-            <a href="Table" ${checked eq "order"? "id='checked'":""}>Manage Orders</a>
-            <a href="DishManage" ${checked eq "dish"? "id='checked'":""}>Manage Dishes</a>
-            <a href="Reserve" ${checked eq "reserve"? "id='checked'":""}>Manage Reservation</a>
-            <a href="Account" ${checked eq "account"? "id='checked'":""}>Manage Account</a>
-            <a href="" ${checked eq "revenue"? "id='checked'":""}>Manage Revenue</a>
-        </nav>
-    </div>
+        <jsp:include page="Tables.jsp"></jsp:include>
             <div class="Aorder">
 
                 <h5 class="add_table">Search</h5>

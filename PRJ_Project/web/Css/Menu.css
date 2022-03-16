@@ -68,45 +68,49 @@ body{
 .search button:hover{
     background: yellow;
 }
-.paging a:link, a:visited{
-    background-color: powderblue;
-    color: white;
-    padding: 0.5em 0.5em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.paging {
+    a:link, a:visited{
+        background-color: powderblue;
+        color: black;
+        padding: 0.5em 0.5em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
 }
 
 .paging{
     clear: both;
     margin-left: 0;
 }
-.paging a:hover, a:active {
-    background-color: aqua;
+.paging {
+    a:hover, a:active {
+        background-color: aqua;
+    }
 }
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: #f1f1f1;
-  
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+
 }
 
 li a {
-  display: block;
-  color: darkslategray;
-  padding: 0.2em 0.5em;
-  text-decoration: none;
+    display: block;
+    color: darkslategray;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
 }
 
 li a.active {
-  background-color: #04AA6D;
-  color: white;
+    background-color: #04AA6D;
+    color: white;
 }
 
 li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+    background-color: #555;
+    color: white;
 }
 

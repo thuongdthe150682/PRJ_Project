@@ -230,8 +230,8 @@ public class DishDAO extends BaseDAO {
     public List<Dish> getNewDishes() {
         List<Dish> list = new ArrayList<>();
         try {
-            String query = "select top 2 * from Dishes where [Status]=1\n"
-                    + "order by Id desc";
+            String query = "  select top 4 *from Dishes where [status]=1 and [CategoryID] not in (1,5)\n"
+                    + "  order by id desc";
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

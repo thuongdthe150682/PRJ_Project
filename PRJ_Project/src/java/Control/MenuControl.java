@@ -5,7 +5,6 @@ import DAO.DishDAO;
 import Model.Category;
 import Model.Dish;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +48,7 @@ public class MenuControl extends HttpServlet {
             list = dao.getAllDishes();
             listD = dao.getAllDishes(page);
         }
-        if(request.getParameter("all")!=null && request.getParameter("all").equals("true")){
+           if(request.getParameter("all")!=null && request.getParameter("all").equals("true")){
             listD=list;
         }
         int total = 0;
@@ -88,11 +87,7 @@ public class MenuControl extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";

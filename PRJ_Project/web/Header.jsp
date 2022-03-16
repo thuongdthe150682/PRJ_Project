@@ -5,7 +5,7 @@
 <div class="menu" style="background-color: white;">
     <nav>
         <a  href="Home" ${active eq "home"? "id='active'":""}>Home</a>
-        <a href="Menu?all=true" ${active eq "menu"? "id='active'":""}>Menu</a>
+        <a href="Menu?all=true?page=1" ${active eq "menu"? "id='active'":""}>Menu</a>
         <a  href="SpecialDishes" ${active eq "specialDishes"? "id='active'":""}>Special Dishes</a>
         <img src="Images/Logoo.png" alt="logo">
         <c:if test="${sessionScope.acc.isManager == 1}">
@@ -24,7 +24,7 @@
         </c:if>
         <c:if test="${sessionScope.acc != null}">
             <a  href="Reserve" ${active eq "Reserve"? "id='active'":""}>Reserve</a>
-            <a  href="#" style="color: crimson;">${sessionScope.acc.getUsername()}</a>
+            <a  href="StaffManage?account=${sessionScope.acc}&task=seeown" style="color: crimson;">${sessionScope.acc.getUsername()}</a>
             <form action="Logout" method="post">
                 <button class="button"type="submit" >Logout</button>
             </form>

@@ -6,7 +6,6 @@ import DAO.DishDAO;
 import Model.Category;
 import Model.Dish;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +20,7 @@ public class UpdateDishControl extends HttpServlet {
             throws ServletException, IOException {
        response.setContentType("text/html;charset=UTF-8");
         String task = request.getParameter("task");
+        
         request.setAttribute("task", task);
         String dishid = request.getParameter("id");
         DishDAO dao = new DishDAO();
@@ -82,7 +82,7 @@ public class UpdateDishControl extends HttpServlet {
                 request.getRequestDispatcher("UpdateDish.jsp").forward(request, response);
             }
             if(task.equals("add")){
-                dao.updateDish(id, name, description, price, image, Status, category);
+                dao.addDish(name, description, price, image, Status, category);
                 Dish dish = dao.getLastDish();
                 request.setAttribute("mess", "Dish is add.");
                 request.setAttribute("dish", dish);

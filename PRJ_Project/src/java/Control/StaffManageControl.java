@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class StaffManageControl extends HttpServlet {
@@ -20,7 +21,15 @@ public class StaffManageControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         AccountDAO dao = new AccountDAO();
        Account a = (Account)request.getAttribute("account");
-       Staff s = dao.getStaffByUserName(a.getUsername());
+       HttpSession session = request.getSession();
+       
+       Staff s = null;
+       if((Account)session.getAttribute("acc")!=null && request.getParameter("task").equals("seeown")){
+           a = (Account)session.getAttribute("acc");
+           s = dao.getStaffByUserName(a.getUsername());
+       }else{
+           s = dao.getStaffByUserName(a.getUsername());
+       }
        request.setAttribute("checked", "account");
        request.setAttribute("active", "manage");
        if(s!=null){

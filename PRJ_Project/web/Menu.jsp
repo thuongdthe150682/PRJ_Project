@@ -39,6 +39,7 @@
                 <div class="mright">
                     <div style="width: 100%;" class="specialdish adish">
                         <c:forEach items="${list}" var="o">
+                            <div class="col-12 col-md-6 col-lg-4">
                             <div class="adish col">
                                 <img class="left col"src="${o.getImage()}" alt="">
                                 <div class="right col">
@@ -47,14 +48,16 @@
                                     <p>${o.getDescription()}</p>
                                 </div>
                             </div>
+                            </div>
                         </c:forEach>
                     </div>
                     <c:if test="${total > 1}">
                         <div class="paging" style="margin-left: 5%;">
                             <c:forEach var = "i" begin = "1" end = "${total}">
-                                <a href="Menu?page=${i}&search=${search}&id=${id}"><b>${i}</b></a> 
+                                <a href="Menu?page=${i}&search=${search}&id=${id}"
+                                   <c:if test="${page == i}">class="active"</c:if>><b>${i}</b></a> 
                                     </c:forEach>
-                            <a href="Menu?search=${search}&all=true"><b>All</b></a>
+                            <a href="Menu?search=${search}&all=true&id=${id}"><b>All</b></a>
                         </div>
                     </c:if>
                 </div>

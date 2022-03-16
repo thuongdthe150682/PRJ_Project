@@ -23,7 +23,7 @@ public class ManageControl extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("checked", "order");
         request.setAttribute("active", "manage");
-        request.getRequestDispatcher("Manage.jsp").forward(request, response);
+        request.getRequestDispatcher("Table.jsp").forward(request, response);
     }
 
    

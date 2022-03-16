@@ -18,7 +18,7 @@
                         <div>
                             <h2>We Love <br>Delicious Foods!</h2>
                             <div class="pleft">
-                                <a class="btn" href="Menu?all=true" role="button">Explore Menu</a>
+                                <a class="btn" href="Menu?all=true?page=1" role="button">Explore Menu</a>
                                 <p>Call to order: 0582 642 654</p>
                             </div>
 

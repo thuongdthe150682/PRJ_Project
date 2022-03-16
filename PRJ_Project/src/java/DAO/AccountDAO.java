@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDAO extends BaseDAO {
-
+    
     public List<Account> getAllAccount() {
         List<Account> list = new ArrayList<>();
-     
+        
         try {
             String query = "select * from account";
             PreparedStatement ps = connection.prepareStatement(query);
@@ -29,7 +29,7 @@ public class AccountDAO extends BaseDAO {
         }
         return null;
     }
-
+    
     public Account getAnAccount(String Username, String Password) {
         Account account = null;
         try {
@@ -50,7 +50,7 @@ public class AccountDAO extends BaseDAO {
         }
         return null;
     }
-
+    
     public Account getAnAccount(String Username) {
         Account account = null;
         try {
@@ -70,7 +70,7 @@ public class AccountDAO extends BaseDAO {
         }
         return null;
     }
-
+    
     public boolean addAccount(String username, String password, String isManager, List<Account> list) {
         boolean check;
         try {
@@ -97,7 +97,7 @@ public class AccountDAO extends BaseDAO {
         }
         return true;
     }
-
+    
     public void updateAccount(String username, String password, String isManager) {
         try {
             String query = "update Account ,[Password]=? , IsManage=?\n"
@@ -111,7 +111,7 @@ public class AccountDAO extends BaseDAO {
             e.getStackTrace();
         }
     }
-
+    
     public void deleteAccount(String username) {
         try {
             String query = "delete from Account where Username=?";
@@ -119,17 +119,17 @@ public class AccountDAO extends BaseDAO {
                 PreparedStatement ps = connection.prepareStatement(query);
                 ps.setString(1, username);
                 ps.executeUpdate();
-
+                
             }
         } catch (SQLException e) {
             e.getStackTrace();
         }
-
+        
     }
-
+    
     public Staff getStaffByUserName(String user) {
         try {
-
+            
             String query = "select * from Staff where UserName = ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, user);
@@ -143,13 +143,13 @@ public class AccountDAO extends BaseDAO {
                         rs.getString(5).trim(),
                         rs.getString(6).trim());
             }
-
+            
         } catch (SQLException e) {
             e.getStackTrace();
         }
         return null;
     }
-
+    
     public void updateStaff(String username, String firstName, String lastName, String date,
             String address, String phone) {
         try {
@@ -167,7 +167,7 @@ public class AccountDAO extends BaseDAO {
             e.getStackTrace();
         }
     }
-
+    
     public void addStaff(String username, String firstName, String lastName, String date,
             String address, String phone) {
         try {
@@ -181,12 +181,12 @@ public class AccountDAO extends BaseDAO {
             ps.setString(5, address);
             ps.setString(6, phone);
             ps.executeUpdate();
-
+            
         } catch (SQLException e) {
             e.getStackTrace();
         }
     }
-
+    
     public void deleteStaff(String user) {
         try {
             String query = "delete from Staff where UserName=?";
@@ -197,9 +197,11 @@ public class AccountDAO extends BaseDAO {
             e.getStackTrace();
         }
     }
-//    public static void main(String[] args) {
-//        AccountDAO dao = new AccountDAO();
+
+    public static void main(String[] args) {
+        AccountDAO dao = new AccountDAO();
 //        System.out.println(dao.getAllAccount());
 //        System.out.println(dao.addAccount("ha123", "123", "1", dao.getAllAccount()));
-//    }
+//        System.out.println(dao.getStaffByUserName("ma123"));
+    }
 }

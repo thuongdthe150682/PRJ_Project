@@ -153,6 +153,7 @@ body{
 .pfoot2 table{
     width: 90%;
     margin-left: 0;
+    font-size: 0.6em;
 }
 .pfoot2 table tr td:first-child{
     padding-left: 0;
@@ -170,6 +171,7 @@ body{
     display: table; 
     width: 45%;
     font-size: 0.7em;
+    height: 30vh;
 }
 .col {
   display: table-cell; 
