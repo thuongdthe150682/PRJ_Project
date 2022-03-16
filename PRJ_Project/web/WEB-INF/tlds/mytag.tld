@@ -21,13 +21,8 @@
       </listener>
     -->
   <tag>
-    <name>MyTagHandle</name>
-    <tag-class>MyTag.TagHandle</tag-class>
-    <body-content>scriptless</body-content>
-  </tag>
-  <tag>
-    <name>MyTagHandler</name>
-    <tag-class>Filter.MyTagHandler</tag-class>
+    <name>NewTagHandler</name>
+    <tag-class>MyTag.NewTagHandler</tag-class>
     <body-content>scriptless</body-content>
   </tag>
 </taglib>

@@ -23,9 +23,9 @@
                     <form action="Reservation" method="post">
                         <input type="text" placeholder="Name" name="name"><br>
                         <input type="text" placeholder="Phone" name="phone"><br>
-                        <input type="date"  placeholder="Date" name="date">
+                        <input type="date" min=<m:NewTagHandler/> placeholder="Date" name="date">
                         <input type="time" placeholder="Time" name="time"><br>
-                        <input type="number" min=<m:MyTagHandle> placeholder="Number of People" name="number"><br>
+                        <input type="number" min="1" placeholder="Number of People" name="number"><br>
                         <input class="area"type="textbox" placeholder="Your message" name="message"><br>
                         <p style="font-size: 0.6em; color: crimson;">${message}</p>
                         <button class="button" type="submit">Send Messsage</button>
