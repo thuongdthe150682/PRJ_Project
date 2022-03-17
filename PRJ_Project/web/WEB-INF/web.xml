@@ -92,6 +92,10 @@
         <servlet-name>EditReservationControl</servlet-name>
         <servlet-class>Control.EditReservationControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BenefitControl</servlet-name>
+        <servlet-class>Control.BenefitControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccountManageControl</servlet-name>
         <url-pattern>/Account</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>EditReservationControl</servlet-name>
         <url-pattern>/editReservation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BenefitControl</servlet-name>
+        <url-pattern>/Benefit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,16 +6,34 @@ public class Order_Dish {
     private int DishId;
     private int quantity;
     private float price;
-    
+    private float payment;
+    private String name;
 
     public Order_Dish() {
     }
-
+    
     public Order_Dish(int OrderId, int DishId, int quantity, float price) {
         this.OrderId = OrderId;
         this.DishId = DishId;
         this.quantity = quantity;
         this.price = price;
+        this.payment = quantity*price;
+    }
+
+    public float getPayment() {
+        return payment;
+    }
+
+    public void setPayment(float payment) {
+        this.payment = payment;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     

@@ -104,7 +104,7 @@ public class MyFilter implements Filter {
         String url = req.getServletPath();
         String [] urlNeedLogin = {"Account","AddOrder","ConfirmAddOrder","ConfirmFixOrder","DeleteStaff",
         "DishManage","FixOrder","Logout","Manage","Reserve","StaffManage",
-        "Table","UpdateAccount","UpdateDish","UpdateOrder","editReservation"};
+        "Table","UpdateAccount","UpdateDish","UpdateOrder","editReservation","Benefit"};
         boolean check1= true;
         boolean check2 = true;
         for (int i = 0; i < urlNeedLogin.length; i++) {
