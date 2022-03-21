@@ -13,19 +13,23 @@
         <div class="container">
             <jsp:include page="Header.jsp"></jsp:include>
             <jsp:include page="Tables.jsp"></jsp:include>
-            <div class="form">
-                <div class="pform">
-                    <h6>${task} Dish: ${dish.getId()}</h6>
+            <div style="background-color: antiquewhite;" >
+                    <div style="margin-left: 20%; font-size: 0.8em;">
+                        <h6 style="font-size: 1em;">${task} Dish: ${dish.getId()}</h6>
                     <form action="UpdateDish" method="post">
                         <c:if test="${task !='add'}">
-                            Id:<input type="text" value="${dish.getId()}" name="id" readonly ><br>
+                            Id:<input style="display: block;width: 60%; font-size: 1em; " type="text" value="${dish.getId()}" name="id" readonly ><br>
                         </c:if>
-                        Name:<input type="text" value="${dish.getName()}" name="name" ${task=='see' ? "readonly":""}><br>
-                        Description:<input class="area" type="textbox" 
-                                           value="${dish.getDescription()}" name="description" ${task=='see' ? "readonly":""}><br>
-                        Price:<input type="number" value="${dish.getPrice()}" name="price"${task=='see' ? "readonly":""}><br>
-                        Image:<input type="text" value="${dish.getImage()}" name="image" ${task=='see' ? "readonly":""}><br>
-                        Status:<select name="Status" ${task=='see' ? "readonly":""}>
+                        Name:<input style="display: block;width: 60%;font-size: 1em;" type="text" value="${dish.getName()}" name="name" ${task=='see' ? "readonly":""}><br>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <br>
+                            <textarea style="width: 60%;height: 50px;font-size: 1em;" class="form-control" id="description" rows="3" name="description">${dish.getDescription()}</textarea>
+                        </div>
+
+                        Price:<input style="display: block;width: 60%;font-size: 1em;" type="number" value="${dish.getPrice()}" name="price"${task=='see' ? "readonly":""}><br>
+                        Image:<input style="display: block;width: 60%;font-size: 1em;" type="text" value="${dish.getImage()}" name="image" ${task=='see' ? "readonly":""}><br>
+                        Status:<select style="display: block;width: 60%;font-size: 1em;" name="Status" ${task=='see' ? "readonly":""}>
                             <option value="1" ${dish.isStatus()=='true'?"selected":""}>selling</option>
                             <option value="0" ${dish.isStatus()=='false'?"selected":""}>pause</option>
                         </select>
@@ -54,5 +58,7 @@
 
             <jsp:include page="Footer.jsp"></jsp:include>
         </div>
+        <script src="Jss/bootstrap.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>

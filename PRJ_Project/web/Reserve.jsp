@@ -14,6 +14,8 @@
         <link href="Css/home.css" rel="stylesheet" type="text/css"/>
         <link href="Css/reserve.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Manage.css" rel="stylesheet" type="text/css"/>
+        <link href="Css/addOrder.css" rel="stylesheet" type="text/css"/>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     </head>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
@@ -24,10 +26,11 @@
         <div class="adish">
             <div class="rleft col">
                 <c:if test="${!listN.isEmpty()}">
-                    <h6 class="reservation">Not Yet Reservation</h6>
-                    <table class="table_reserve">
+                    <h6 style="color: black;">Not Yet Reserved</h6>
+                    <!--table_reserve-->
+                    <table class="table">
                         <thead>
-                            <tr style="background-color: gainsboro;">
+                            <tr style="background-color: black;">
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Date</th>
@@ -51,7 +54,7 @@
                                     <td>${o.getMesage() }</td>
                                     <td>${o.getPhone()}</td>
                                     <td>${o.getStaff()}</td>
-                                    <td><a href="Reserve?id=${o.getId()}">Edit</a></td>
+                                    <td><a href="Reserve?id=${o.getId()}"><i class='fas fa-pen' style="color: green;"></i></a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -60,10 +63,10 @@
 
 
                 <c:if test="${!listD.isEmpty()}">
-                    <h6 class="reservation">Done Reservation</h6>
-                    <table class="table_reserve" name="Not_yet">
+                    <h6 style="color: black;">Done Reservation</h6>
+                    <table class="table" name="Not_yet">
                         <thead>
-                            <tr style="background-color: gainsboro;">
+                            <tr style="background-color: black;">
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Date</th>
@@ -87,7 +90,7 @@
                                     <td>${o.getMesage() }</td>
                                     <td>${o.getPhone()}</td>
                                     <td>${o.getStaff()}</td>
-                                    <td><a href="Reserve?id=${o.getId()}">Edit</a></td>
+                                    <td><a href="Reserve?id=${o.getId()}"><i class='fas fa-pen' style="color: green;"></i></a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

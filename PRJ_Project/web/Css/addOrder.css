@@ -11,10 +11,11 @@ body{
     text-align: center;
     margin-top: 2em;
     margin-bottom: 1em;
+    font-size: 0.7em;
 }
 .table th{
-    background-color: forestgreen;
-    color: white;
+    background-color: activeborder;
+    color: black;
 }
 .table tr:nth-child(even){
     background-color: #f2f2f2;

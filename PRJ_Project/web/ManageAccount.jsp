@@ -16,7 +16,7 @@
         <jsp:include page="Header.jsp"></jsp:include>
         <jsp:include page="Tables.jsp"></jsp:include>
         <div class="Aorder">
-            ${message}
+            <p style="color: crimson; margin-left: 5%;" >${message}</p>
             <form action="UpdateAccount" method="get">
                 <c:if test="${list.size() >0}">
                     <table class="table" style="margin-left: 5%;">
@@ -29,12 +29,6 @@
                         <tbody>
                             <c:forEach items="${list}" var="o">
                                 <tr>
-                                    <td>
-                                        <a href="UpdateAccount?user=${o.getUsername()}&task=update"><i class='fas fa-pen' style="color: black;"></i></a>
-                                        <a href="UpdateAccount?user=${o.getUsername()}&task=delete"
-                                           onclick="return confirm('Are you sure you want to Delete this Account?');"><i class='fas fa-trash-alt' style="color: black;"></i></a>
-                                        <a href="UpdateAccount?user=${o.getUsername()}&task=see"><i class='far fa-eye' style="color: black;"></i></a>
-                                    </td>
                                     <td style="margin-left: 0.5em;">${o.getUsername()}</td>
                                     <td style="margin-left: 0.5em;">${o.getPassword()}</td>
                                     <c:if test="${o.getIsManager() == 1 }">
@@ -43,6 +37,12 @@
                                     <c:if test="${o.getIsManager() == 0 }">
                                         <td>Staff</td>
                                     </c:if>
+                                        <td>
+                                        <a href="UpdateAccount?user=${o.getUsername()}&task=update"><i class='fas fa-pen' style="color: green;"></i></a>
+                                        <a href="UpdateAccount?user=${o.getUsername()}&task=delete"
+                                           onclick="return confirm('Are you sure you want to Delete this Account?');"><i class='fas fa-trash-alt' style="color: crimson;"></i></a>
+                                        <a href="UpdateAccount?user=${o.getUsername()}&task=see"><i class='far fa-eye' style="color: graytext;"></i></a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

@@ -15,6 +15,31 @@
         <link href="Css/addOrder.css" rel="stylesheet" type="text/css"/>
         <link href="Css/confirmOrder.css" rel="stylesheet" type="text/css"/>
     </head>
+   <style>
+         table tr:nth-child(odd){
+            background-color: beige;
+        }
+         table tr:nth-child(odd){
+            background-color: #f2f2f2;
+        }
+        
+        input{
+            font-size: 0.7em;
+            border: none;
+            background-color: inherit;
+        }
+        .buttonn{
+            font-size: 0.8em;
+            background-color: crimson;
+            padding: 0.4em 0.6em;
+            border-radius: 0.8em;
+            color: #ffffff;
+        }
+        .buttonn:hover{
+            background-color:firebrick;
+        }
+        
+    </style>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
         <h5>Add ${table.getName()}</h5>

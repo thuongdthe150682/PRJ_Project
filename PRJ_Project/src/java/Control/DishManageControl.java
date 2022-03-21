@@ -23,7 +23,11 @@ public class DishManageControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        CategoryDAO daoc = new CategoryDAO();
         List<Category> listC = daoc.getAllCategory();
-        
+        String s= "";
+        s = request.getParameter("task");
+        if(s!=null && s.equals("see")){
+            request.setAttribute("active", "dishes");
+        }
         DishDAO dao = new DishDAO();
         List<Category_Dish> list = new ArrayList<>();
         List<Category_Dish> listP = new ArrayList<>();

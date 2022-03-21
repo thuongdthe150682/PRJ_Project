@@ -78,7 +78,7 @@ public class UpdateAccountControl extends HttpServlet {
                 Account account = new Account(user, pass);
                 request.setAttribute("account", account);
                 request.setAttribute("task", "add");
-                request.setAttribute("mess", "Account Duplicated.");
+                request.setAttribute("mess", "Can't add.Username duplicate or username/password blank.");
             }
             
             request.getRequestDispatcher("Account").forward(request, response);

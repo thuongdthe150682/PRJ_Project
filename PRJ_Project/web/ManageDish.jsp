@@ -21,19 +21,23 @@
 
                 <c:forEach items="${list}" var="o">
                     <c:if test="${o.getList() != null}">
-                        <h6 class="cate">${o.getName()}</h6>
+                        <h6 style="font-size: 0.6em; color: #555;" class="cate">${o.getName()}</h6>
                         <table class="table" style="margin-left: 5%;">
                             <tbody>
                                 <c:forEach  var="d" items="${o.getList()}">
                                     <tr>
-                                        <td>
-                                            <a href="UpdateDish?id=${d.getId()}&task=update"><i class='fas fa-pen' style="color: black;"></i></a>
-                                            <a href="UpdateDish?id=${d.getId()}&task=delete"
-                                               onclick="return confirm('Are you sure you want to Delete this Dish?');"><i class='fas fa-trash-alt' style="color: black;"></i></a>
-                                            <a href="UpdateDish?id=${d.getId()}&task=see"><i class='far fa-eye' style="color: black;"></i></a>
-                                        </td>
-                                        <td style="margin-left: 0.5em;">${d.getId()}.${d.getName()}</td>
+                                        <td style="text-align: left;margin-left: 1em;">${d.getId()}.${d.getName()}</td>
                                         <td>${d.getPrice()}$</td>
+                                        <td>
+                                            <c:if test="${sessionScope.acc.isManager == 1}">
+                                            <a href="UpdateDish?id=${d.getId()}&task=update"><i class='fas fa-pen' style="color: green;"></i></a>
+                                            <a href="UpdateDish?id=${d.getId()}&task=delete"
+                                               onclick="return confirm('Are you sure you want to Delete this Dish?');"><i class='fas fa-trash-alt' style="color: crimson;"></i></a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.acc.isManager == 0}">
+                                            <a href="UpdateDish?id=${d.getId()}&task=see"><i class='far fa-eye' style="color: yellowgreen;"></i></a>
+                                            </c:if>
+                                        </td>
                                     </tr>
                                 </c:forEach>
 
@@ -46,19 +50,23 @@
                 <c:forEach items="${listP}" var="o">
                     
                     <c:if test="${o.getList().size()>0}">
-                        <h6 class="cate">${o.getName()}</h6>
+                        <h6 style="font-size: 0.6em; color: #555;" class="cate">${o.getName()}</h6>
                         <table class="table pause" style="margin-left: 5%;">
                             <tbody>
                                 <c:forEach  var="d" items="${o.getList()}">
                                     <tr>
-                                        <td>
-                                            <a href="UpdateDish?id=${d.getId()}&task=update"><i class='fas fa-pen' style="color: black;"></i></a>
-                                            <a href="UpdateDish?id=${d.getId()}&task=delete"
-                                               onclick="return confirm('Are you sure you want to Delete this Dish?');"><i class='fas fa-trash-alt' style="color: black;"></i></a>
-                                            <a href="UpdateDish?id=${d.getId()}&task=see"><i class='far fa-eye' style="color: black;"></i></a>
-                                        </td>
-                                        <td style="margin-left: 0.5em;">${d.getId()}.${d.getName()}</td>
+                                        <td style="text-align: left;margin-left: 1em; width: 30%;">${d.getId()}.${d.getName()}</td>
                                         <td>${d.getPrice()}$</td>
+                                        <td>
+                                            <c:if test="${sessionScope.acc.isManager == 1}">
+                                            <a href="UpdateDish?id=${d.getId()}&task=update"><i class='fas fa-pen' style="color: green;"></i></a>
+                                            <a href="UpdateDish?id=${d.getId()}&task=delete"
+                                               onclick="return confirm('Are you sure you want to Delete this Dish?');"><i class='fas fa-trash-alt' style="color: crimson;"></i></a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.acc.isManager == 0}">
+                                            <a href="UpdateDish?id=${d.getId()}&task=see"><i class='far fa-eye' style="color: yellowgreen;"></i></a>
+                                            </c:if>
+                                        </td>
                                     </tr>
                                 </c:forEach>
 

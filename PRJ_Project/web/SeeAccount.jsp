@@ -14,18 +14,22 @@
         <div class="container">
             <jsp:include page="Header.jsp"></jsp:include>
             <jsp:include page="Tables.jsp"></jsp:include>
-            <div class="form">
-                <div class="pform">
+            <div style="margin-left: 5%; color: #444;font-weight: lighter;">
+                <div>
                     <h6>${user}</h6>
                     ${message}
                     <c:if test="${task == 'add'}"><p style="color: crimson;">User has no information.</p></c:if>
                     <form action="StaffManage" method="post">
-                        Username:<input type="text" value="${user}" name="user" readonly><br>
-                        FirstName:<input type="text" value="${staff.getFirstName()}" name="firstname"><br>
-                        LastName:<input type="text" value="${staff.getLastName()}" name="lastname"><br>
-                        DOB:<input type="date" value="${staff.getDOB()}" name="dob"><br>
-                        Address<input type="text" value="${staff.getAddress()}" name="address"><br>
-                        Phone<input type="text" value="${staff.getPhone()}" name="phone"><br>
+                        Username:<input style="display: block;width: 90%;" type="text" value="${user}" name="user" readonly><br>
+                        FirstName:<input style="display: block;width: 90%;" type="text" value="${staff.getFirstName()}" name="firstname"><br>
+                        LastName:<input style="display: block;width: 90%;" type="text" value="${staff.getLastName()}" name="lastname"><br>
+                        DOB:<input style="display: block;width: 90%;" type="date" value="${staff.getDOB()}" name="dob"><br>
+                        <div class="form-group">
+                            <label for="Address">Address:</label>
+                            <br>
+                            <textarea style="width: 90%;height: 30px; font-size: 0.7em; " class="form-control" id="Address" rows="3" name="address">${staff.getAddress()}</textarea>
+                        </div>
+                        Phone: <input style="display: block;width: 90%;" type="text" value="${staff.getPhone()}" name="phone"><br>
                         <input class="tablee" name="task" type="text" value="${task}" readonly>
                         <p style="color: crimson">${mess}</p>
                         <br>

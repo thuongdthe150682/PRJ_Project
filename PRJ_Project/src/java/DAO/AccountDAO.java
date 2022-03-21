@@ -74,6 +74,9 @@ public class AccountDAO extends BaseDAO {
     public boolean addAccount(String username, String password, String isManager, List<Account> list) {
         boolean check;
         try {
+            if(username.trim().equals("")|| password.trim().equals("")){
+                return false;
+            }
             check = true;
             String query = "insert into Account (Username,[Password],IsManage)\n"
                     + "  values(?,?,?)";
