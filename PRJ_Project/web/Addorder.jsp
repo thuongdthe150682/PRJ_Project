@@ -13,8 +13,14 @@
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
             <div class="Aorder">
-                <h5 class="add_table">Add ${table.getName()}</h5>
-                <form action="AddOrder" method="post">
+                <form style="margin-left: 5%;" action="AddOrder" method="post">
+                    <p style="font-size: 1.2em; font-weight: bold;margin-left: 40%;">    
+                 Table: <select style="font-size: 0.7em;margin-top: 2em;" name="table">
+                <c:forEach items="${listT}" var="o">
+                    <option value="${o.getId()}">${o.getName()}</option>
+                </c:forEach>
+                </select>
+                 </p>
                 <c:forEach items="${list}" var="o">
                     <c:if test="${o.getList() != null}">
                         <h6 class="cate">${o.getName()}</h6>
@@ -33,7 +39,7 @@
                     </c:if>
                 </c:forEach>
                 <br>
-                <input class ="tablee" type="text" name="table" value="${table.getId()}" readonly />
+                <!--<input class ="tablee" type="text" name="table" value="${table.getId()}" readonly />-->
                 <button class="btn" type="submit" >Add</button>   
             </form>
         </div>

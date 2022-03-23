@@ -23,7 +23,11 @@ public class Order {
         this.Table = Table;
         this.Status = Status;
     }
-
+    public Order(int Id, float total) {
+        this.Id = Id;
+        this.total=total;
+    }
+ 
     public Order(int Id, Date date, Time Startime, String Table, String Status) {
         this.Id = Id;
         this.date = date;

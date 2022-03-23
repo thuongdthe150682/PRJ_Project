@@ -1,4 +1,3 @@
-
 package Control;
 
 import DAO.AddOderDAO;
@@ -15,26 +14,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class UpdateOrderControl extends HttpServlet {
-
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-    
+
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String tablesid = request.getParameter("tableid");
+        String orderid = request.getParameter("orderid");
+        String task = request.getParameter("task");
         AddOderDAO tdao = new AddOderDAO();
-        Table t = tdao.getTableById(tablesid);
+//        Table t = tdao.getTableById(tablesid);
         DishDAO ddao = new DishDAO();
         AddOderDAO dao = new AddOderDAO();
-        String orderid = dao.getCurrentOrderByTableId(tablesid);
+//        String orderid = dao.getCurrentOrderByTableId(tablesid);
         List<Order_Dish> list = dao.getOrder_Dish(orderid);
         List<Dish> listD = new ArrayList<>();
         float total = 0;
@@ -44,7 +41,8 @@ public class UpdateOrderControl extends HttpServlet {
             total += payment[i];
             listD.add(ddao.getDishesById(list.get(i).getDishId() + ""));
         }
-        request.setAttribute("table", t);
+//        request.setAttribute("table", t);
+        request.setAttribute("task", task);
         request.setAttribute("listDish", listD);
         request.setAttribute("total", total);
         request.setAttribute("orderId", orderid);
@@ -53,7 +51,6 @@ public class UpdateOrderControl extends HttpServlet {
         request.getRequestDispatcher("SeeOrder.jsp").forward(request, response);
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -76,7 +73,6 @@ public class UpdateOrderControl extends HttpServlet {
         }
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Short description";

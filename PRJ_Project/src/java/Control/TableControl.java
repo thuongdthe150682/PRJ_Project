@@ -2,6 +2,7 @@
 package Control;
 
 import DAO.AddOderDAO;
+import Model.Order;
 import Model.Table;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,14 +18,17 @@ public class TableControl extends HttpServlet {
  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+//        response.setContentType("text/html;charset=UTF-8");
         AddOderDAO dao = new  AddOderDAO();
-        List<Table> list = dao.getAllTable();
+        List<Order> list = dao.getAllOrders();
+//        List<Table> list = dao.getAllTable();
         String message = (String)request.getAttribute("message");
         request.setAttribute("checked", "order");
         request.setAttribute("message", message);
         request.setAttribute("list", list);
         request.getRequestDispatcher("Table.jsp").forward(request, response);
+          
+      
     }
 
   

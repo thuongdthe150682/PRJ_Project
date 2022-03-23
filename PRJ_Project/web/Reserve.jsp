@@ -17,6 +17,22 @@
         <link href="Css/addOrder.css" rel="stylesheet" type="text/css"/>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     </head>
+    <style>
+        .close{
+            padding: 0.2em 0.5em 0.2em 0.5em;
+        }
+        .close,.buttonn{
+            text-decoration: none;
+            color: white;
+            background-color: crimson;
+            font-size: 1em;
+            margin-top: 3px;
+            
+        }
+        .close:hover,.buttonn:hover{
+            background-color: brown;
+        }
+    </style>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
         <c:if test="${sessionScope.acc.isManager == 1}">
@@ -98,7 +114,7 @@
                 </c:if>
             </div>
             <c:if test="${reserve !=null}">
-                <div class="rright col" >
+                <div style="margin-left: 5%;" class="rright col" >
                     <h6 class="reservation">Edit</h6>
                     <form action="editReservation" method="get">
                         <input type="text" value="${reserve.getId()}" name="id" readonly><br>
@@ -110,7 +126,8 @@
                         <input class="area"type="textbox" name="message">${reserve.getMesage()}<br>
                         <c:if test="${messageEdit == 'Edit Successfully.'}">${messageEdit}</c:if>
                         <c:if test="${messageEdit != 'Edit Successfully.'}">
-                            <button class="button" type="submit">Done</button>
+                            <button class="buttonn" type="submit">Done</button>
+                            <a class="close" href="Reserve">Close</a>
                         </c:if>
 
                     </form>

@@ -12,6 +12,37 @@
         <link href="Css/confirmOrder.css" rel="stylesheet" type="text/css"/>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     </head>
+    <style>
+        .buttonn{
+            margin-top: 1em;
+            font-size: 1em;
+            margin-left: 45%;
+            color: white;
+            background-color: crimson;
+        }
+        .buttonn:hover{
+            background-color: brown;
+        }
+        
+        .closee{
+            padding: 0.2em 0.5em 0.2em 0.5em;
+        }
+        .buttonn2{
+            border-color: khaki;
+        }
+        .closee,.buttonn2{
+            text-decoration: none;
+            color: black;
+            background-color: khaki;
+            font-size: 1em;
+            margin-top: 3px;
+            
+        }
+        .closee:hover,.buttonn2:hover{
+            background-color: gold;
+            border-color: gold;
+        }
+    </style>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
         <jsp:include page="Tables.jsp"></jsp:include>
@@ -19,7 +50,7 @@
             <p style="color: crimson; margin-left: 5%;" >${message}</p>
             <form action="UpdateAccount" method="get">
                 <c:if test="${list.size() >0}">
-                    <table class="table" style="margin-left: 5%;">
+                    <table class="table" style="margin: 0 auto;">
                         <thead>
                         <th></th>
                         <th>UserName</th>
@@ -49,7 +80,7 @@
                     </table>
                 </c:if>
                 <input class ="tablee" type="text" name="task" value="add" readonly />
-                <button class="addanA" type="submit" >Add An Account</button>   
+                <button class="buttonn" type="submit" >Add An Account</button>   
             </form>
         </div>
         <jsp:include page="UpdateAccount.jsp"></jsp:include>

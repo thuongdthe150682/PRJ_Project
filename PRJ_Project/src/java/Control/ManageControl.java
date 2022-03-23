@@ -2,6 +2,7 @@
 package Control;
 
 import DAO.AddOderDAO;
+import Model.Order;
 import Model.Table;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,12 +19,24 @@ public class ManageControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         AddOderDAO dao = new  AddOderDAO();
-        List<Table> list = dao.getAllTable();
-        request.setAttribute("list", list);
+//         AddOderDAO dao = new  AddOderDAO();
+//        List<Table> list = dao.getAllTable();
+//        request.setAttribute("list", list);
+//        request.setAttribute("checked", "order");
+//        request.setAttribute("active", "manage");
+//        request.getRequestDispatcher("Table.jsp").forward(request, response);
+        
+        
+        //        response.setContentType("text/html;charset=UTF-8");
+        AddOderDAO dao = new  AddOderDAO();
+        List<Order> list = dao.getAllOrders();
+//        List<Table> list = dao.getAllTable();
+        String message = (String)request.getAttribute("message");
         request.setAttribute("checked", "order");
-        request.setAttribute("active", "manage");
+        request.setAttribute("message", message);
+        request.setAttribute("list", list);
         request.getRequestDispatcher("Table.jsp").forward(request, response);
+          
     }
 
    
@@ -37,7 +50,7 @@ public class ManageControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
     }
 
    

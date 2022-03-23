@@ -9,13 +9,33 @@
         <link href="Css/ManageDish.css" rel="stylesheet" type="text/css"/>
         <link href="Css/Manage.css" rel="stylesheet" type="text/css"/>
     </head>
+    <style>
+        
+        .buttonn{
+            text-decoration: none;
+            color: white;
+            background-color: crimson;
+            font-size: 1em;
+            margin-top: 3px;
+            border-color: crimson;
+            margin-bottom: 1em;
+            margin-left: 30%;
+            font-size: 1em;
+            padding: 0.5em 1em 0.5em 1em;
+            
+        }
+        .buttonn:hover{
+            background-color: brown;
+            border-color: brown;
+        }
+    </style>
     <body>
         <div class="container">
             <jsp:include page="Header.jsp"></jsp:include>
             <jsp:include page="Tables.jsp"></jsp:include>
-            <div style="background-color: antiquewhite;" >
+            <div >
                     <div style="margin-left: 20%; font-size: 0.8em;">
-                        <h6 style="font-size: 1em;">${task} Dish: ${dish.getId()}</h6>
+                        <h6 style="font-size: 1.3em;margin-bottom: 0.7em;margin-top: 1em;">${task} Dish: ${dish.getId()}</h6>
                     <form action="UpdateDish" method="post">
                         <c:if test="${task !='add'}">
                             Id:<input style="display: block;width: 60%; font-size: 1em; " type="text" value="${dish.getId()}" name="id" readonly ><br>
@@ -34,23 +54,20 @@
                             <option value="0" ${dish.isStatus()=='false'?"selected":""}>pause</option>
                         </select>
                         <br>
-                        <br>
-                        Category:<select name="category" ${task=='see' ? "readonly":""}>
+                        Category:<select style="font-size: 1em;" name="category" ${task=='see' ? "readonly":""}>
                             <c:forEach items="${listC}" var="o">
                                 <option value="${o.getId()}" ${o.getId() == dish.getCategory_Id()?"selected":""}> 
                                     ${o.getName()}
                                 </option>
                             </c:forEach>
                         </select>
-                        <br>
                         <p style="color: crimson">${mess}</p>
-                        <br>
                         <input class="tablee" name="task" type="text" value="${task}" readonly>
                         <c:if test="${task=='update'}">
-                            <button class="button" type="submit">Update</button>
+                            <button class="buttonn" type="submit">Update</button>
                         </c:if>
                         <c:if test="${task=='add'}">
-                            <button class="button" type="submit">Add</button>
+                            <button class="buttonn" type="submit">Add</button>
                         </c:if>
                     </form>
                 </div>

@@ -11,6 +11,7 @@ import DAO.DishDAO;
 import Model.Category;
 import Model.Category_Dish;
 import Model.Dish;
+import Model.Table;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +36,10 @@ public class AddOrderControl extends HttpServlet {
             list.add(new Category_Dish(listC.get(i).getId() + "", listC.get(i).getName(),
                     dao.getDishesByCategory(listC.get(i).getId() + "")));
         }
-        String tableid = request.getParameter("tableid");
-        request.setAttribute("table", ordao.getTableById(tableid));
+//        String tableid = request.getParameter("tableid");
+//        request.setAttribute("table", ordao.getTableById(tableid));
+        List<Table> listT = ordao.getAllTable();
+        request.setAttribute("listT", listT);
         request.setAttribute("listC", listC);
         request.setAttribute("list", list);
         request.getRequestDispatcher("Addorder.jsp").forward(request, response);

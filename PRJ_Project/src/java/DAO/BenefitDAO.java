@@ -38,6 +38,60 @@ public class BenefitDAO extends BaseDAO {
         return null;
     }
 
+    public List<Order> getOrdersToday() {
+        try {
+            List<Order> list = new ArrayList<>();
+            String query = "select OrderID,SUM(Quantity*Price) as [Total] from \n"
+                    + "(select * from Orders where [date]=CONVERT(VARCHAR(10),GETDATE(),101))r\n"
+                    + "inner join Order_Dish d on r.Id=d.OrderID\n"
+                    + "group by OrderID";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1), rs.getFloat(2)));
+            }
+            return list;
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
+    public List<Order> getOrdersByDate(String date) {
+        try {
+            List<Order> list = new ArrayList<>();
+            String query = "select OrderID,SUM(Quantity*Price) as [Total] from \n"
+                    + "(select * from Orders where [date]=?)r\n"
+                    + "inner join Order_Dish d on r.Id=d.OrderID\n"
+                    + "group by OrderID";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, date);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1), rs.getFloat(2)));
+            }
+            return list;
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
+    
+    
+    public String getDate(){
+        try {
+            String query = "select GETDATE()";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+            
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
+
     public List<Order> getOrdersTodayNotYet() {
         try {
             List<Order> list = new ArrayList<>();
@@ -103,7 +157,7 @@ public class BenefitDAO extends BaseDAO {
         }
         return null;
     }
-    
+
     public List<Order> getOrdersBydayNotFinah(String date) {
         try {
             List<Order> list = new ArrayList<>();
@@ -187,5 +241,6 @@ public class BenefitDAO extends BaseDAO {
         BenefitDAO dao = new BenefitDAO();
         System.out.println(dao.getBestSeller());
         System.out.println(dao.getOrdersTodayNotYet().size());
+        System.out.println(dao.getDate().substring(0, 10));
     }
 }
