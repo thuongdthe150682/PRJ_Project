@@ -59,14 +59,22 @@ public class AddOrderControl extends HttpServlet {
             throws ServletException, IOException {
         //request.setCharacterEncoding("UTF_8");
         String[] dishid = request.getParameterValues("chose");
+        String[] price = request.getParameterValues("price");
+        String[] quantity = request.getParameterValues("quantity");
         String table = request.getParameter("table");
         List<Dish> list = new ArrayList<>();
         DishDAO dao = new DishDAO();
         AddOderDAO Odao = new AddOderDAO();
         if (dishid != null) {
-            for (String dishid1 : dishid) {
-                list.add(dao.getDishesById(dishid1));
+            for (int i = 0; i < dishid.length; i++) {
+                Dish id = dao.getDishesById(dishid[i]);
+                id.setPrice(Float.parseFloat(price[i]));
+                id.setQuantity(quantity[i]);
+                list.add(id);
             }
+//            for (String dishid1 : dishid) {
+//                list.add(dao.getDishesById(dishid1));
+//            }
         }
         if (dishid == null) {
             request.setAttribute("message", "No dish is chosen.");

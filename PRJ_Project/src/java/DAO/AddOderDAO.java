@@ -195,6 +195,25 @@ public class AddOderDAO extends BaseDAO {
         }
         return null;
     }
+    public Dish getDish(String orderID,String dishId) {
+        try {
+            String query = "select * from Order_Dish o inner join Dishes d\n" +
+"on o.DishID=d.Id where o.OrderID= ? and d.Id=?";
+            
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, orderID);
+            ps.setString(2, dishId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Dish(rs.getInt(2),
+                        rs.getString(6), rs.getString(7), rs.getFloat(4), rs.getString(9), rs.getBoolean(10), rs.getInt(11), rs.getString(3));
+            }
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
+    
     public void deleteAnOrder(String Orderid ,String tableID){
          try {
             // delete in table Orders

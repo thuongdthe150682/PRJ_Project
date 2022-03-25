@@ -70,8 +70,10 @@
                             <!--<td><a href="AddOrder?orderid=${o.getId()}"><i style="color: green" class='fas fa-plus'></i></a></td>-->
                         </c:if>
                         <c:if test="${o.getStatus()=='0'}">
-                            <!--                            <td><i  style="color: crimson" class='fas fa-file-alt'></i></i></td>-->
-                            <td><a href="UpdateOrder?orderid=${o.getId()}"><i  style="color: green" class='fas fa-edit'></i></a>
+                            <!--<td><i  style="color: crimson" class='fas fa-file-alt'></i></i></td>-->
+                            <!--<td>UpdateOrder?orderid=${o.getId()}</td>-->
+                            
+                            <td><a href="FixOrder?orderId=${o.getId()}"><i  style="color: green" class='fas fa-edit'></i></a>
                                 <a  href="ConfirmFixOrder?orderId=${o.getId()}&tableID=${o.getTable()}"
                                     onclick="return confirm('Are you sure you want to Delete this Account?');"><i class='fas fa-trash-alt' style="color: crimson;"></i></a>
                             </td>

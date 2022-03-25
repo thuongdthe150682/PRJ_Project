@@ -59,7 +59,7 @@
                             <td><input class="input" type="text" name="id" value="${o.getId()}" readonly/></td>
                             <td><input class="input" type="text" name="name" value="${o.getName()}" readonly/></td>
                             <td><input class="input" type="number" min="0" name="price" value="${o.getPrice()}"/></td>
-                            <td><input class="input" type="number" min="1" name="quantity" value="1"/></td>
+                            <td><input class="input" type="number" min="1" name="quantity" value="${o.getQuantity()}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>

@@ -63,8 +63,13 @@
                         <tr>
                             <td><input class="input" type="text" name="id" value="${list.get(i).getId()}" readonly/></td>
                             <td><input class="input" type="text" name="name" value="${list.get(i).getName()}" readonly/></td>
-                            <td><input class="input" type="number" name="price" value="${listO.get(i).getPrice()}"/></td>
-                            <td><input class="input" type="number" name="quantity" value="${listO.get(i).getQuantity()}"/></td>
+                            <td><input class="input" type="number" name="price" value="${list.get(i).getPrice()}"/></td>
+                            <td><input class="input" type="number" name="quantity" value="${list.get(i).getQuantity()}"/></td>
+                            
+<!--                            <td><input class="input" type="text" name="id" value="${o.getId()}" readonly/></td>
+                            <td><input class="input" type="text" name="name" value="${o.getName()}" readonly/></td>
+                            <td><input class="input" type="number" min="0" name="price" value="${o.getPrice()}"/></td>
+                            <td><input class="input" type="number" min="1" name="quantity" value="${o.getQuantity()}"/></td>-->
                         </tr>
                     </c:forEach>
                 </tbody>

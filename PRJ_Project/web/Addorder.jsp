@@ -10,6 +10,13 @@
         <link href="Css/addOrder.css" rel="stylesheet" type="text/css"/>
 
     </head>
+    <style>
+        .a{
+            font-size: 0.7em;
+            background-color: inherit;
+            border: none;
+        }
+    </style>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
             <div class="Aorder">
@@ -30,7 +37,8 @@
                                     <tr>
                                         <td><input class ="a" type="checkbox" name="chose" value="${d.getId()}" /></td>
                                         <td style="margin-left: 0.5em;">${d.getId()}.${d.getName()}</td>
-                                        <td>${d.getPrice()}$</td>
+                                        <td><input class ="a" type="number" min="0" name="price" value="${d.getPrice()}" /></td>
+                                        <td><input class ="a" type="number" min="0" name="quantity" value="1" /></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
